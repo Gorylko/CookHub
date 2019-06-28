@@ -1,4 +1,4 @@
-USE [CookHub]
+USE [CookHubDB]
 CREATE TABLE [dbo].[IngredientRecipeDetails]
 (
 	[Id]INT IDENTITY NOT NULL,

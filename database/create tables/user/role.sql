@@ -1,4 +1,4 @@
-USE [CookHub]
+USE [CookHubDB]
 GO
 CREATE TABLE [Role]
 (
