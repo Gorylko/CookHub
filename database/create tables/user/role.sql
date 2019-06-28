@@ -1,0 +1,7 @@
+USE [CookHub]
+GO
+CREATE TABLE [Role]
+(
+	[Id]INT IDENTITY NOT NULL,
+	[Name]NVARCHAR(30)
+);
