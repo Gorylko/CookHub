@@ -1,5 +1,4 @@
-USE [CookHubDB]
-GO
+USE [CookHubDB];
 CREATE TABLE [dbo].[RecipeImage]
 (
 	[Id]INT IDENTITY NOT NULL,

@@ -1,5 +1,4 @@
-USE [CookHubDB]
-GO
+USE [CookHubDB];
 CREATE TABLE [Role]
 (
 	[Id]INT IDENTITY NOT NULL,

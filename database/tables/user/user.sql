@@ -1,5 +1,4 @@
-USE [CookHubDB]
-GO
+USE [CookHubDB];
 CREATE TABLE [dbo].[User]
 (
 	[Id]INT IDENTITY NOT NULL,
