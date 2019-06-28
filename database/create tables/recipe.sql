@@ -1,0 +1,11 @@
+USE [CookHub]
+GO
+CREATE TABLE [dbo].[Recipe]
+(
+	[Id]INT IDENTITY NOT NULL,
+	[UserId]INT NOT NULL,
+	[Name]NVARCHAR(100) NOT NULL,
+	[Description]NVARCHAR(MAX),
+	PRIMARY KEY CLUSTERED([Id] ASC),
+	FOREIGN KEY([UserId]) REFERENCES [dbo].[User]([Id])
+);
