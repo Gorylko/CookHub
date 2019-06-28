@@ -24,10 +24,12 @@ sqlcmd -S %server% -i tables\recipe\recipe_ingredient_details.sql
 
 sqlcmd -S %server% -i inserts\user\role.sql
 sqlcmd -S %server% -i inserts\user\user.sql
+sqlcmd -S %server% -i inserts\user\userImage.sql
 
 sqlcmd -S %server% -i inserts\recipe\ingredient.sql
 sqlcmd -S %server% -i inserts\recipe\ingredientDetails.sql
 sqlcmd -S %server% -i inserts\recipe\recipe.sql
 sqlcmd -S %server% -i inserts\recipe\recipe_ingredient_details.sql
+sqlcmd -S %server% -i inserts\recipe\recipeImage.sql
 
 pause

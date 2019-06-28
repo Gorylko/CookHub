@@ -13,4 +13,4 @@ INSERT INTO [dbo].[RecipeImage]([RecipeId], [Path], [Extension])
 VALUES(4, 'database/images/recipe/pizza.jpg', 'jpg')
 
 INSERT INTO [dbo].[RecipeImage]([RecipeId], [Path], [Extension])
-VALUES(5, 'database/images/recipe/shaurma', 'jpg')
+VALUES(5, 'database/images/recipe/shaurma.jpg', 'jpg')
