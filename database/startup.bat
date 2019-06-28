@@ -8,11 +8,18 @@ sqlcmd -S %server% -i startup.sql
 sqlcmd -S %server% -i drop_user.sql
 sqlcmd -S %server% -i create_user.sql
 
-sqlcmd -S %server% -U %user% -P %password% -i drop_database.sql
+sqlcmd -S %server% -i drop_database.sql
 sqlcmd -S %server% -i create_database.sql
 
-sqlcmd -S %server% -i %currentPath%tables\user\user.sql
 sqlcmd -S %server% -i tables\user\role.sql
+sqlcmd -S %server% -i tables\user\user.sql
 sqlcmd -S %server% -i tables\user\userImage.sql
+
+
+sqlcmd -S %server% -i tables\recipe\recipe.sql
+sqlcmd -S %server% -i tables\recipe\ingredient.sql
+sqlcmd -S %server% -i tables\recipe\ingredientDetails.sql
+sqlcmd -S %server% -i tables\recipe\recipeImage.sql
+sqlcmd -S %server% -i tables\recipe\recipe_ingredient_details.sql
 
 pause
