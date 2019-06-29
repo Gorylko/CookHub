@@ -1,0 +1,15 @@
+USE MASTER;
+GO
+
+CREATE LOGIN cookHub_admin 
+    WITH PASSWORD = N'panties7890', 
+    DEFAULT_DATABASE = MASTER, 
+    DEFAULT_LANGUAGE = US_ENGLISH;
+GO
+
+ALTER LOGIN cookHub_admin ENABLE;
+GO
+
+ALTER SERVER ROLE  odmen  ADD MEMBER cookHub_admin;  
+
+GRANT CONTROL SERVER TO cookHub_admin;
