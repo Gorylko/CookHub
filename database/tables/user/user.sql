@@ -6,7 +6,6 @@ CREATE TABLE [dbo].[User]
 	[Email]NVARCHAR(50)NOT NULL,
 	[PhoneNumber]NVARCHAR(20)NULL,
 	[RoleId]INT NOT NULL,
-	[Password] NVARCHAR(50) NOT NULL,
 	PRIMARY KEY CLUSTERED([Id]ASC),
 	FOREIGN KEY([RoleId]) REFERENCES [dbo].[Role]([Id])
 );

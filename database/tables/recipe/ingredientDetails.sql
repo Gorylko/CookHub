@@ -1,7 +1,0 @@
-USE [CookHubDB];
-CREATE TABLE [dbo].[IngredientDetails]
-(
-	[Id]INT IDENTITY NOT NULL,
-	[Amount] NVARCHAR(50)NOT NULL
-	PRIMARY KEY CLUSTERED([Id]ASC)
-);
