@@ -1,8 +1,9 @@
 ﻿using CookHub.Shared.Entities.Enums;
+using CookHub.Shared.Interfaces.Recipe;
 
 namespace CookHub.Shared.Entities
 {
-    public class Ingredient
+    public class Ingredient : IIngredient
     {
         public int Id { get; set; }
 

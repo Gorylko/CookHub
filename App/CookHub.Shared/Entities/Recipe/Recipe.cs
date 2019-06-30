@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CookHub.Shared.Interfaces;
+using CookHub.Shared.Interfaces.Recipe;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CookHub.Shared.Entities
 {
-    public class Recipe
+    public class Recipe : IRecipe
     {
         public int Id { get; set; }
 
@@ -18,6 +20,6 @@ namespace CookHub.Shared.Entities
 
         public IReadOnlyCollection<Ingredient> Ingredients { get; set; }
 
-        public User Author { get; set; }
+        public IUser Author { get; set; }
     }
 }

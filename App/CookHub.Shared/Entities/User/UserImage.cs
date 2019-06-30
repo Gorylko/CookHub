@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CookHub.Shared.Interfaces.User;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CookHub.Shared.Entities
 {
-    public class UserImage
+    public class UserImage : IUserImage
     {
         public int Id { get; set; }
 
