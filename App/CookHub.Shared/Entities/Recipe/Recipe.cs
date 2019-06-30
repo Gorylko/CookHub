@@ -18,6 +18,17 @@ namespace CookHub.Shared.Entities
 
         public IReadOnlyCollection<Ingredient> Ingredients { get; set; }
 
+        public NutritionalValue NutritionalValue {
+            get {
+                var value = new NutritionalValue();
+                foreach(var el in Ingredients)
+                {
+                    value += el.NutritionalValue;
+                }
+                return value;
+            }
+        }
+
         public User Author { get; set; }
     }
 }
