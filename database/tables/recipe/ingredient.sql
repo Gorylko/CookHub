@@ -3,5 +3,8 @@ CREATE TABLE [dbo].[Ingredient]
 (
 	[Id]INT IDENTITY NOT NULL,
 	[Name]NVARCHAR(50)NOT NULL,
+	[Protein]INT NOT NULL,
+	[Fat]INT NOT NULL,
+	[Ñarbohydrate]INT NOT NULL,
 	PRIMARY KEY CLUSTERED([Id]ASC)
 );

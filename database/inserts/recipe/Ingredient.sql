@@ -1,103 +1,103 @@
 USE [CookHubDB];
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Водка')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Водка', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Картошка')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Картошка', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Яйцо')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Яйцо', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Свинина')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Свинина', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Сыр')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Сыр', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Молоко')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Молоко', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Творог')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Творог', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Соль')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Соль', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Сахар')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Сахар', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Перец чёрный')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Перец чёрный', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Перец красный')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Перец красный', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Сода')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Сода', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Вода')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Вода', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Мука')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Мука', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Шоколад горький')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Шоколад горький', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Шоколад молочный')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Шоколад молочный', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Зелень')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Зелень', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Сливки')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Сливки', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Курица')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Курица', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Говядина')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Говядина', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Перепилиное яйцо')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Перепилиное яйцо', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Огурец')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Огурец', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Перец сладкий')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Перец сладкий', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Оливки')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Оливки', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Томатная паста')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Томатная паста', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Маслины')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Маслины', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Салями')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Салями', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Колбаса охотничья')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Колбаса охотничья', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Масло сливочное')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Масло сливочное', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Масло подсолнечное')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Масло подсолнечное', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Понировочные сухари')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Понировочные сухари', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Хлеб')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Хлеб', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Колбаса докторская')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Колбаса докторская', 100, 100, 100)
 
-INSERT INTO [dbo].[Ingredient]([Name])
-VALUES ('Помидор')
+INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Сarbohydrate])
+VALUES ('Помидор', 100, 100, 100)
