@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Entities\Enums\RoleType.cs" />
     <Compile Include="Entities\Enums\UnitType.cs" />
+    <Compile Include="Entities\Recipe\NutritionalValue.cs" />
     <Compile Include="Entities\Recipe\RecipeImage.cs" />
     <Compile Include="Entities\Recipe\Ingredient.cs" />
     <Compile Include="Entities\Recipe\Recipe.cs" />
