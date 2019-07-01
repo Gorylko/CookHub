@@ -1,4 +1,4 @@
-﻿using CookHub.Shared.Interfaces.User;
+﻿using CookHub.Shared.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

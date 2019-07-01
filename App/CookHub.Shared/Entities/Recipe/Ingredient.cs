@@ -1,5 +1,5 @@
 ﻿using CookHub.Shared.Entities.Enums;
-using CookHub.Shared.Interfaces.Recipe;
+using CookHub.Shared.Interfaces;
 
 namespace CookHub.Shared.Entities
 {

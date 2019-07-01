@@ -1,6 +1,8 @@
-﻿namespace CookHub.Shared.Entities
+﻿using CookHub.Shared.Interfaces;
+
+namespace CookHub.Shared.Entities
 {
-    public class NutritionalValue
+    public class NutritionalValue : INutritionalValue
     {
         public int Protein { get; set; }
 

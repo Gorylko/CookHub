@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CookHub.Shared.Interfaces.Recipe
+namespace CookHub.Shared.Interfaces
 {
-    interface IIngredient
+    public interface IIngredient
     {
         int Id { get; set; }
 

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CookHub.Shared.Interfaces.Recipe
+namespace CookHub.Shared.Interfaces
 {
-    interface IRecipe
+    public interface IRecipe
     {
         int Id { get; set; }
 
@@ -19,7 +19,8 @@ namespace CookHub.Shared.Interfaces.Recipe
 
         IReadOnlyCollection<Ingredient> Ingredients { get; set; }
 
+        INutritionalValue NutritionalValue { get; }
+
         IUser Author { get; set; }
-        //!!! due to this property, IUser interface have to be public
     }
 }

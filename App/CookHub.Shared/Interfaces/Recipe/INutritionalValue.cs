@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace CookHub.Shared.Interfaces
 {
-    public interface IUserImage
+    public interface INutritionalValue
     {
-        int Id { get; set; }
+        int Protein { get; set; }
 
-        string Path { get; set; }
+        int Fat { get; set; }
 
-        int UserId { get; set; }
+        int Carbohydrate { get; set; }
     }
 }

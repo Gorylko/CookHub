@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CookHub.Shared.Interfaces.Recipe
+namespace CookHub.Shared.Interfaces
 {
-    interface IRecipeImage
+    public interface IRecipeImage
     {
 
         int Id { get; set; }
 
         string Path { get; set; }
 
+        int RecipeId { get; set; }
     }
 }
