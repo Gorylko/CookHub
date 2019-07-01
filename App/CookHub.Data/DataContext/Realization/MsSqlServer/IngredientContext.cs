@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CookHub.Shared.Helpers;
 using SqlConst = CookHub.Data.Constants.SqlConstants;
+using CookHub.Shared.Constants;
 using CookHub.Shared.Entities.Enums;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
@@ -22,7 +23,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 
             ingredient.Id = (int)reader["Id"];
             ingredient.Name = (string)reader["Name"];
-            ingredient.Amount = (int)reader["Amount"];
+            ingredient.Amount = (int)reader["Amount"]; //не будет работать пока из-за этого поля(оно хранится в таблице RecipeInfo), нужно будет переделать немног что-то
             ingredient.Unit = EnumParser.Parse<UnitType>((string)reader["Unit"]);
 
             nutritionalValue.Protein = (int)reader["Protein"];
@@ -70,11 +71,15 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             };
         }
 
-        public void Save(IIngredient obj)
+        public void Save(IIngredient ingredient)
         {
             using(var connection = new SqlConnection(SqlConst.ConnectionString))
             {
-                var command = new SqlCommand("INSERT INTO [dbo].[Indredient]([Name], [Protein], [Fat], [Carbohydrate])", connection);
+                var command = new SqlCommand("INSERT INTO [dbo].[Indredient]([Name], [Protein], [Fat], [Carbohydrate]) VALUES (@name, @protein, @fat, @carbohydrate)", connection);
+                command.Parameters.AddWithValue("@name", ingredient.Name);
+                command.Parameters.AddWithValue("@protein", ingredient.NutritionalValue.Protein);
+                command.Parameters.AddWithValue("@fat", ingredient.NutritionalValue.Fat);
+                command.Parameters.AddWithValue("@carbohydrate", ingredient.NutritionalValue.Carbohydrate);
             }
         }
     }

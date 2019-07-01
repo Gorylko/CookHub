@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\Typography.cs" />
     <Compile Include="Entities\Enums\RoleType.cs" />
     <Compile Include="Entities\Enums\UnitType.cs" />
     <Compile Include="Entities\Recipe\NutritionalValue.cs" />
