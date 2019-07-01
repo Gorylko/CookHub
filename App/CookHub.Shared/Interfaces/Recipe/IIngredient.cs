@@ -17,5 +17,6 @@ namespace CookHub.Shared.Interfaces
 
         UnitType Unit { get; set; }
     
+        INutritionalValue NutritionalValue { get; set; }
     }
 }

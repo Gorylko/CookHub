@@ -10,7 +10,7 @@ namespace CookHub.Shared.Entities
 
         public int Carbohydrate { get; set; }
 
-        public static NutritionalValue operator +(NutritionalValue value1, NutritionalValue value2)
+        public static NutritionalValue operator +(NutritionalValue value1, INutritionalValue value2)
         {
             return new NutritionalValue
             {
@@ -20,7 +20,7 @@ namespace CookHub.Shared.Entities
             };
         }
 
-        public static NutritionalValue operator -(NutritionalValue value1, NutritionalValue value2)
+        public static NutritionalValue operator -(NutritionalValue value1, INutritionalValue value2)
         {
             return new NutritionalValue
             {

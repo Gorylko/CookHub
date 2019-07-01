@@ -49,6 +49,7 @@
     <Compile Include="Entities\Recipe\Recipe.cs" />
     <Compile Include="Entities\User\User.cs" />
     <Compile Include="Entities\User\UserImage.cs" />
+    <Compile Include="Helpers\EnumParser.cs" />
     <Compile Include="Interfaces\Recipe\IIngredient.cs" />
     <Compile Include="Interfaces\Recipe\INutritionalValue.cs" />
     <Compile Include="Interfaces\Recipe\IRecipe.cs" />
