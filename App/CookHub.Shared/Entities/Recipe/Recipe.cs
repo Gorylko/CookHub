@@ -17,7 +17,7 @@ namespace CookHub.Shared.Entities
 
         public INutritionalValue NutritionalValue {
             get {
-                var value = new NutritionalValue();
+                var value = new NutritionalValue(); //container here
                 foreach(var el in Ingredients)
                 {
                     value += el.NutritionalValue;

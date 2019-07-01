@@ -13,6 +13,6 @@ namespace CookHub.Shared.Entities
 
         public UnitType Unit { get; set; }
 
-        public NutritionalValue NutritionalValue { get; set; }
+        public INutritionalValue NutritionalValue { get; set; }
     }
 }

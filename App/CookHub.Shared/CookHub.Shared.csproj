@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\Typography.cs" />
     <Compile Include="Entities\Enums\RoleType.cs" />
     <Compile Include="Entities\Enums\UnitType.cs" />
     <Compile Include="Entities\Recipe\NutritionalValue.cs" />
@@ -49,6 +50,7 @@
     <Compile Include="Entities\Recipe\Recipe.cs" />
     <Compile Include="Entities\User\User.cs" />
     <Compile Include="Entities\User\UserImage.cs" />
+    <Compile Include="Helpers\EnumParser.cs" />
     <Compile Include="Interfaces\Recipe\IIngredient.cs" />
     <Compile Include="Interfaces\Recipe\INutritionalValue.cs" />
     <Compile Include="Interfaces\Recipe\IRecipe.cs" />
