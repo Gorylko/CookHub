@@ -21,9 +21,9 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             IIngredient ingredient = new Ingredient();//тут пихать контейнеркую хрень          
             INutritionalValue nutritionalValue = new NutritionalValue();//и тут тожЫ
 
-            ingredient.Id = (int)reader["Id"];
+            ingredient.Id = (int)reader["IngredientId"];
             ingredient.Name = (string)reader["Name"];
-            ingredient.Amount = (int)reader["Amount"]; //не будет работать пока из-за этого поля(оно хранится в таблице RecipeInfo), нужно будет переделать немног что-то
+            ingredient.Amount = (int)reader["Amount"];
             ingredient.Unit = EnumParser.Parse<UnitType>((string)reader["Unit"]);
 
             nutritionalValue.Protein = (int)reader["Protein"];
@@ -38,7 +38,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         {
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
-                var command = new SqlCommand("SELECT * FROM [dbo].[Ingredient] WHERE [Id] = @id", connection);
+                var command = new SqlCommand(SqlConst.SelectAllIngredients + Typography.NewLine + "WHERE [Id] = @id", connection);
                 command.Parameters.AddWithValue("@id", id);
                 var reader = command.ExecuteReader();
                 reader.Read();
