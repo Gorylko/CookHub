@@ -46,6 +46,7 @@
     <Compile Include="DataContext\Realization\MsSqlServer\IngredientContext.cs" />
     <Compile Include="DataContext\Realization\MsSqlServer\RecipeContext.cs" />
     <Compile Include="DataContext\Realization\MsSqlServer\UserContext.cs" />
+    <Compile Include="DataContext\Realization\MsSqlServer\UserImageContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
