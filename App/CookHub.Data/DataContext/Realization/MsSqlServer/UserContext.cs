@@ -1,16 +1,10 @@
-﻿using CookHub.Data.DataContext.Interfaces;
-using CookHub.Shared.Entities;
+﻿using CookHub.Shared.Entities;
+using CookHub.Shared.Entities.Enums;
+using CookHub.Shared.Helpers;
 using CookHub.Shared.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CookHub.Shared.Helpers;
 using SqlConst = CookHub.Data.Constants.SqlConstants;
-using CookHub.Shared.Constants;
-using CookHub.Shared.Entities.Enums;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
@@ -36,7 +30,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
                 var list = new List<IUser>();
-                var command = new SqlCommand("SELECT [dbo].[User] JOIN [dbo].[Role] on [User.RoleId] = [dbo].[Role.Id]", connection);
+                var command = new SqlCommand("SELECT [dbo].[User] JOIN [dbo].[Role] ON [User].[RoleId] = [dbo].[Role].[Id]", connection);
                 var reader = command.ExecuteReader();
 
                 while (reader.Read())
@@ -52,7 +46,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         {
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
-                var command = new SqlCommand("SELECT [dbo].[User] WHERE [dbo].[User.Id] = @id", connection);
+                var command = new SqlCommand("SELECT [dbo].[User] WHERE [dbo].[User].[Id] = @id", connection);
                 command.Parameters.AddWithValue("@id", id);
                 var reader = command.ExecuteReader();
                 reader.Read();

@@ -32,7 +32,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         {
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
-                var command = new SqlCommand("SELECT [dbo].[UserImage] WHERE [dbo].[UserImage.Id] = @id", connection);
+                var command = new SqlCommand("SELECT [dbo].[UserImage] WHERE [dbo].[UserImage].[Id] = @id", connection);
                 command.Parameters.AddWithValue("@id", id);
                 var reader = command.ExecuteReader();
                 reader.Read();
