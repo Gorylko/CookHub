@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookHub.Data", "CookHub.Dat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookHub.Shared", "CookHub.Shared\CookHub.Shared.csproj", "{7D88B35F-D9FE-40DF-9DD7-AE2FA4F6B061}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookHub.Business", "CookHub.Business\CookHub.Business.csproj", "{C584B94E-DBD6-4A41-B9E3-E262E81AE451}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{7D88B35F-D9FE-40DF-9DD7-AE2FA4F6B061}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D88B35F-D9FE-40DF-9DD7-AE2FA4F6B061}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D88B35F-D9FE-40DF-9DD7-AE2FA4F6B061}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C584B94E-DBD6-4A41-B9E3-E262E81AE451}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C584B94E-DBD6-4A41-B9E3-E262E81AE451}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C584B94E-DBD6-4A41-B9E3-E262E81AE451}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C584B94E-DBD6-4A41-B9E3-E262E81AE451}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
