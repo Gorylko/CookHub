@@ -17,20 +17,19 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
     {
         private Shared.Entities.Ingredient MapIngredient(SqlDataReader reader)
         {
-            Ingredient ingredient = new Ingredient();//тут пихать контейнеркую хрень          
-            NutritionalValue nutritionalValue = new NutritionalValue();//и тут тожЫ
-
-            ingredient.Id = (int)reader["IngredientId"];
-            ingredient.Name = (string)reader["Name"];
-            ingredient.Amount = (int)reader["Amount"];
-            ingredient.Unit = EnumParser.Parse<UnitType>((string)reader["Unit"]);
-
-            nutritionalValue.Protein = (int)reader["Protein"];
-            nutritionalValue.Fat = (int)reader["Fat"];
-            nutritionalValue.Carbohydrate = (int)reader["Carbohydrate"];
-
-            ingredient.NutritionalValue = nutritionalValue;
-            return ingredient;
+            return new Ingredient
+            {
+                Id = (int)reader["IngredientId"],
+                Name = (string)reader["Name"],
+                Amount = (int)reader["Amount"],
+                Unit = EnumParser.Parse<UnitType>((string)reader["Unit"]),
+                NutritionalValue = new NutritionalValue
+                {
+                    Protein = (int)reader["Protein"],
+                    Fat = (int)reader["Fat"],
+                    Carbohydrate = (int)reader["Carbohydrate"]
+                }
+            };
         }
 
         public Ingredient GetById(int id)

@@ -17,7 +17,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
     {
         private UserImage MapUserImage(SqlDataReader reader)
         {
-            UserImage userImage = new Shared.Entities.UserImage
+            UserImage userImage = new UserImage
             {
                 Id = (int)reader["Id"],
                 UserId = (int)reader["UserId"],
@@ -44,9 +44,9 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
                 var command = new SqlCommand("INSERT INTO [dbo].[UserImage]([Id], [UserId], [Path]) VALUES (@id, @userId, @path)", connection);             
-                command.Parameters.AddWithValue("id", userImage.Id);
-                command.Parameters.AddWithValue("userId", userImage.UserId);
-                command.Parameters.AddWithValue("path", userImage.Path);
+                command.Parameters.AddWithValue("@id", userImage.Id);
+                command.Parameters.AddWithValue("@userId", userImage.UserId);
+                command.Parameters.AddWithValue("@path", userImage.Path);
                 command.ExecuteNonQuery();
             }
         }

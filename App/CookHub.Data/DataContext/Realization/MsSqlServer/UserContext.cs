@@ -12,7 +12,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 
         private User MapUser(SqlDataReader reader)
         {
-            User user = new User
+            return new User
             {
                 Id = (int)reader["Id"],
                 Login = (string)reader["Login"],
@@ -20,8 +20,6 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
                 PhoneNumber = (string)reader["PhoneNumber"],
                 Role = EnumParser.Parse<RoleType>((string)reader["Name"])
             };
-
-            return user;
         }
 
         public IReadOnlyCollection<User> GetAll()
@@ -60,11 +58,11 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
                 var command = new SqlCommand("INSERT INTO [dbo].[User]([Id], [Login], [Email], [PhoneNumber], [RoleId]) VALUES (@id, @login, @email, @phoneNumber, @roleId)", connection);
                 //command.Parameters could be one variable: command.Parameters = sqlParameter
                 //if id is long it would be better
-                command.Parameters.AddWithValue("id", user.Id);
-                command.Parameters.AddWithValue("login", user.Id);
-                command.Parameters.AddWithValue("email", user.Email);
-                command.Parameters.AddWithValue("phoneNumber", user.PhoneNumber);
-                command.Parameters.AddWithValue("roleId", (int)user.Role);
+                command.Parameters.AddWithValue("@id", user.Id);
+                command.Parameters.AddWithValue("@login", user.Id);
+                command.Parameters.AddWithValue("@email", user.Email);
+                command.Parameters.AddWithValue("@phoneNumber", user.PhoneNumber);
+                command.Parameters.AddWithValue("@roleId", (int)user.Role);
                 command.ExecuteNonQuery();
             }
         }
