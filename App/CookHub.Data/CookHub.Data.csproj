@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Constants\SqlConstants.cs" />
     <Compile Include="DataContext\Interfaces\IDataContext.cs" />
+    <Compile Include="DataContext\Interfaces\IIngredientContext.cs" />
     <Compile Include="DataContext\Realization\MsSqlServer\IngredientContext.cs" />
     <Compile Include="DataContext\Realization\MsSqlServer\RecipeContext.cs" />
     <Compile Include="DataContext\Realization\MsSqlServer\UserContext.cs" />

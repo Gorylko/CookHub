@@ -13,9 +13,9 @@ using CookHub.Shared.Entities.Enums;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
-    public class IngredientContext : IDataContext<Ingredient>
+    public class IngredientContext : IIngredientContext
     {
-        private Shared.Entities.Ingredient MapIngredient(SqlDataReader reader)
+        private Ingredient MapIngredient(SqlDataReader reader)
         {
             return new Ingredient
             {
@@ -36,7 +36,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         {
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
-                var command = new SqlCommand(SqlConst.SelectAllIngredients + Typography.NewLine + "WHERE [Id] = @id", connection);
+                var command = new SqlCommand("SELECT * FROM [Ingredient] WHERE [Id] = @id", connection);
                 command.Parameters.AddWithValue("@id", id);
                 var reader = command.ExecuteReader();
                 reader.Read();
@@ -78,6 +78,24 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
                 command.Parameters.AddWithValue("@protein", ingredient.NutritionalValue.Protein);
                 command.Parameters.AddWithValue("@fat", ingredient.NutritionalValue.Fat);
                 command.Parameters.AddWithValue("@carbohydrate", ingredient.NutritionalValue.Carbohydrate);
+            }
+        }
+
+        public IReadOnlyCollection<Ingredient> GetAllByRecipeId(int recipeId)
+        {
+            using (var connection = new SqlConnection(SqlConst.ConnectionString))
+            {
+                var list = new List<Ingredient>();
+                var command = new SqlCommand("SELECT [dbo].[Ingredient].* FROM [dbo].[RecipeInfo]" + Typography.NewLine +
+                                             "LEFT JOIN[dbo].[Ingredient] ON[dbo].[RecipeInfo].[IngredientId] = [dbo].[Ingredient].[Id]" + Typography.NewLine +
+                                             "WHERE[RecipeId] = @recipeId", connection);
+                command.Parameters.AddWithValue("@recipeId", recipeId);
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    list.Add(MapIngredient(reader));
+                }
+                return list;
             }
         }
     }
