@@ -24,8 +24,11 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         {
             return new Recipe
             {
+                Name = (string)reader["Name"],
+                Decription = (string)reader["Decription"],
                 Author = _userContext.GetById((int)reader["UserId"]),
-                Ingredients = _ingredientContext.GetAllByRecipeId((int)reader["RecipeId"]) //не закончено
+                Ingredients = _ingredientContext.GetAllByRecipeId((int)reader["Id"]),
+                //Images = _recipeImageContext.GetAllByRecipeId((int)reader["Id"])
             };
         }
 
