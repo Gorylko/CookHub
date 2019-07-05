@@ -19,7 +19,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         {
             return new Ingredient
             {
-                Id = (int)reader["IngredientId"],
+                Id = (int)reader["Id"],
                 Name = (string)reader["Name"],
                 Amount = (int)reader["Amount"],
                 Unit = EnumParser.Parse<UnitType>((string)reader["Unit"]),
@@ -86,8 +86,9 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
                 var list = new List<Ingredient>();
-                var command = new SqlCommand("SELECT [dbo].[Ingredient].* FROM [dbo].[RecipeInfo]" + Typography.NewLine +
+                var command = new SqlCommand("SELECT[dbo].[Ingredient].*, [dbo].[Unit].[Name] AS[Unit] FROM[dbo].[RecipeInfo]" + Typography.NewLine +
                                              "LEFT JOIN[dbo].[Ingredient] ON[dbo].[RecipeInfo].[IngredientId] = [dbo].[Ingredient].[Id]" + Typography.NewLine +
+                                             "LEFT JOIN[dbo].[Unit] ON[dbo].[RecipeInfo].[UnitId] = [dbo].[Unit].[Id]" + Typography.NewLine +
                                              "WHERE[RecipeId] = @recipeId", connection);
                 command.Parameters.AddWithValue("@recipeId", recipeId);
                 var reader = command.ExecuteReader();
