@@ -1,8 +1,6 @@
-﻿using CookHub.Shared.Interfaces;
-
-namespace CookHub.Shared.Entities
+﻿namespace CookHub.Shared.Entities
 {
-    public class NutritionalValue : INutritionalValue
+    public class NutritionalValue
     {
         public int Protein { get; set; }
 
@@ -10,7 +8,7 @@ namespace CookHub.Shared.Entities
 
         public int Carbohydrate { get; set; }
 
-        public static NutritionalValue operator +(NutritionalValue value1, INutritionalValue value2)
+        public static NutritionalValue operator +(NutritionalValue value1, NutritionalValue value2)
         {
             return new NutritionalValue
             {
@@ -20,7 +18,7 @@ namespace CookHub.Shared.Entities
             };
         }
 
-        public static NutritionalValue operator -(NutritionalValue value1, INutritionalValue value2)
+        public static NutritionalValue operator -(NutritionalValue value1, NutritionalValue value2)
         {
             return new NutritionalValue
             {

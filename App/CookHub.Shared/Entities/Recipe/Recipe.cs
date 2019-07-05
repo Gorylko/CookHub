@@ -1,9 +1,8 @@
-﻿using CookHub.Shared.Interfaces;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace CookHub.Shared.Entities
 {
-    public class Recipe : IRecipe
+    public class Recipe
     {
         public int Id { get; set; }
 
@@ -15,7 +14,7 @@ namespace CookHub.Shared.Entities
 
         public IReadOnlyCollection<Ingredient> Ingredients { get; set; }
 
-        public INutritionalValue NutritionalValue {
+        public NutritionalValue NutritionalValue {
             get {
                 var value = new NutritionalValue(); //container here
                 foreach(var el in Ingredients)
@@ -26,6 +25,6 @@ namespace CookHub.Shared.Entities
             }
         }
 
-        public IUser Author { get; set; }
+        public User Author { get; set; }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using CookHub.Data.DataContext.Interfaces;
 using CookHub.Shared.Entities;
-using CookHub.Shared.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -14,12 +13,12 @@ using CookHub.Shared.Entities.Enums;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
-    public class IngredientContext : IDataContext<IIngredient>
+    public class IngredientContext : IDataContext<Ingredient>
     {
-        private IIngredient MapIngredient(SqlDataReader reader)
+        private Shared.Entities.Ingredient MapIngredient(SqlDataReader reader)
         {
-            IIngredient ingredient = new Ingredient();//тут пихать контейнеркую хрень          
-            INutritionalValue nutritionalValue = new NutritionalValue();//и тут тожЫ
+            Ingredient ingredient = new Ingredient();//тут пихать контейнеркую хрень          
+            NutritionalValue nutritionalValue = new NutritionalValue();//и тут тожЫ
 
             ingredient.Id = (int)reader["IngredientId"];
             ingredient.Name = (string)reader["Name"];
@@ -34,7 +33,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             return ingredient;
         }
 
-        public IIngredient GetById(int id)
+        public Ingredient GetById(int id)
         {
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
@@ -56,11 +55,11 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             }
         }
 
-        public IReadOnlyCollection<IIngredient> GetAll()
+        public IReadOnlyCollection<Ingredient> GetAll()
         {
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
-                var list = new List<IIngredient>();
+                var list = new List<Ingredient>();
                 var command = new SqlCommand("SELECT * FROM [dbo].[Ingredient]", connection);
                 var reader = command.ExecuteReader();
                 while (reader.Read())
@@ -71,7 +70,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             };
         }
 
-        public void Save(IIngredient ingredient)
+        public void Save(Ingredient ingredient)
         {
             using(var connection = new SqlConnection(SqlConst.ConnectionString))
             {

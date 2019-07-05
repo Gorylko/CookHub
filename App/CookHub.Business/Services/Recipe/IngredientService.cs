@@ -1,24 +1,24 @@
 ﻿using CookHub.Data.DataContext.Interfaces;
-using CookHub.Shared.Interfaces;
+using CookHub.Shared.Entities;
 using System.Collections.Generic;
 
 namespace CookHub.Business.Services.Recipe
 {
     public class IngredientService
     {
-        private IDataContext<IIngredient> _ingredientContext;
+        private IDataContext<Ingredient> _ingredientContext;
 
-        public IngredientService(IDataContext<IIngredient> context)
+        public IngredientService(IDataContext<Ingredient> context)
         {
             this._ingredientContext = context;
         }
 
-        public IIngredient GetById(int id)
+        public Ingredient GetById(int id)
         {
             return _ingredientContext.GetById(id);
         }
 
-        public IReadOnlyCollection<IIngredient> GetAll()
+        public IReadOnlyCollection<Ingredient> GetAll()
         {
             return _ingredientContext.GetAll();
         }
@@ -28,7 +28,7 @@ namespace CookHub.Business.Services.Recipe
             _ingredientContext.Delete(id);
         }
 
-        public void Save (IIngredient ingredient)
+        public void Save (Ingredient ingredient)
         {
             _ingredientContext.Save(ingredient);
         }

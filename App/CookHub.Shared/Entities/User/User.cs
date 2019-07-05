@@ -1,5 +1,4 @@
 ﻿using CookHub.Shared.Entities.Enums;
-using CookHub.Shared.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CookHub.Shared.Entities
 {
-    public class User : IUser
+    public class User
     {
         public int Id { get; set; }
 

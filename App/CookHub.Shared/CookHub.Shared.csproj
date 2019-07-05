@@ -51,12 +51,6 @@
     <Compile Include="Entities\User\User.cs" />
     <Compile Include="Entities\User\UserImage.cs" />
     <Compile Include="Helpers\EnumParser.cs" />
-    <Compile Include="Interfaces\Recipe\IIngredient.cs" />
-    <Compile Include="Interfaces\Recipe\INutritionalValue.cs" />
-    <Compile Include="Interfaces\Recipe\IRecipe.cs" />
-    <Compile Include="Interfaces\Recipe\IRecipeImage.cs" />
-    <Compile Include="Interfaces\User\IUser.cs" />
-    <Compile Include="Interfaces\User\IUserImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

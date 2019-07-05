@@ -1,7 +1,6 @@
 ﻿using CookHub.Shared.Entities;
 using CookHub.Shared.Entities.Enums;
 using CookHub.Shared.Helpers;
-using CookHub.Shared.Interfaces;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using SqlConst = CookHub.Data.Constants.SqlConstants;
@@ -11,9 +10,9 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
     class UserContext
     {
 
-        private IUser MapUser(SqlDataReader reader)
+        private User MapUser(SqlDataReader reader)
         {
-            IUser user = new User
+            User user = new User
             {
                 Id = (int)reader["Id"],
                 Login = (string)reader["Login"],
@@ -25,11 +24,11 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             return user;
         }
 
-        public IReadOnlyCollection<IUser> GetAll()
+        public IReadOnlyCollection<User> GetAll()
         {
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
-                var list = new List<IUser>();
+                var list = new List<User>();
                 var command = new SqlCommand("SELECT [dbo].[User] JOIN [dbo].[Role] ON [User].[RoleId] = [dbo].[Role].[Id]", connection);
                 var reader = command.ExecuteReader();
 
@@ -42,7 +41,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             }
         }
 
-        public IUser GetById(int id)
+        public User GetById(int id)
         {
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
@@ -54,7 +53,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             }
         }
 
-        public void Save(IUser user)
+        public void Save(User user)
         {
             using(var connection = new SqlConnection(SqlConst.ConnectionString))
             {

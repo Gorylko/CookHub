@@ -1,6 +1,5 @@
 ﻿using CookHub.Data.DataContext.Interfaces;
 using CookHub.Shared.Entities;
-using CookHub.Shared.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -16,9 +15,9 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
     class UserImageContext
     {
-        private IUserImage MapUserImage(SqlDataReader reader)
+        private UserImage MapUserImage(SqlDataReader reader)
         {
-            IUserImage userImage = new UserImage
+            UserImage userImage = new Shared.Entities.UserImage
             {
                 Id = (int)reader["Id"],
                 UserId = (int)reader["UserId"],
@@ -28,7 +27,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             return userImage;
         }
 
-        public IUserImage GetById(int id)
+        public UserImage GetById(int id)
         {
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
@@ -40,7 +39,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             }
         }
 
-        public void Save(IUserImage userImage)
+        public void Save(UserImage userImage)
         {
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
