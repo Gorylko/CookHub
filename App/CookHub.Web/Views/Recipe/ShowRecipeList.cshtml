@@ -10,7 +10,10 @@
         <tr>
             <td>@recipe.Name</td>
             <td>
-                <form></form>
+                <form action="~/Recipe/ShowRecipeInfo">
+                    <input type="submit" value="Открыть" />
+                    <input type="hidden" value="@recipe.Id" name="recipeId"/>
+                </form>
             </td>
         </tr>
     }

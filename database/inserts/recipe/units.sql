@@ -1,10 +1,10 @@
 USE [CookHubDB];
 
 INSERT INTO [dbo].[Unit]([Name])
-VALUES ('Чайная ложка')
+VALUES ('Teaspoon')
 
 INSERT INTO [dbo].[Unit]([Name])
-VALUES ('Столовая лужка')
+VALUES ('Tablespoon')
 
 INSERT INTO [dbo].[Unit]([Name])
 VALUES ('Стакан')
@@ -13,13 +13,13 @@ INSERT INTO [dbo].[Unit]([Name])
 VALUES ('Грамм')
 
 INSERT INTO [dbo].[Unit]([Name])
-VALUES ('Килограмм')
+VALUES ('Kilogram')
 
 INSERT INTO [dbo].[Unit]([Name])
-VALUES ('Литр')
+VALUES ('Liter')
 
 INSERT INTO [dbo].[Unit]([Name])
-VALUES ('Миллилитр')
+VALUES ('Pinch')
 
 INSERT INTO [dbo].[Unit]([Name])
-VALUES ('Штука')
+VALUES ('Piece')

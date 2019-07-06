@@ -17,17 +17,16 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
     {
         private Ingredient MapIngredient(SqlDataReader reader)
         {
-            return new Ingredient
+            return new Ingredient //переделать
             {
                 Id = (int)reader["Id"],
                 Name = (string)reader["Name"],
-                Amount = (int)reader["Amount"],
                 Unit = EnumParser.Parse<UnitType>((string)reader["Unit"]),
                 NutritionalValue = new NutritionalValue
                 {
                     Protein = (int)reader["Protein"],
                     Fat = (int)reader["Fat"],
-                    Carbohydrate = (int)reader["Carbohydrate"]
+                    Carbohydrate = (int)reader["Сarbohydrate"]
                 }
             };
         }

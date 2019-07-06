@@ -2,9 +2,12 @@
 {
     public enum UnitType
     {
-        Gram,
-        Liter,
+        Teaspoon,
+        Tablespoon,
         Сup,
+        Gram,
+        Kilogram,
+        Liter,
         Pinch,
         Piece
     }
