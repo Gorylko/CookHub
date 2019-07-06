@@ -12,10 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Recipe\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\CookHub.Business\CookHub.Business.csproj" />
     <ProjectReference Include="..\CookHub.Shared\CookHub.Shared.csproj" />
   </ItemGroup>
 

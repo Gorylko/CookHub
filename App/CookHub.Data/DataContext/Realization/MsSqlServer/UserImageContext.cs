@@ -31,6 +31,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         {
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
+                connection.Open();
                 var command = new SqlCommand("SELECT [dbo].[UserImage] WHERE [dbo].[UserImage].[Id] = @id", connection);
                 command.Parameters.AddWithValue("@id", id);
                 var reader = command.ExecuteReader();
@@ -43,6 +44,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         {
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
+                connection.Open();
                 var command = new SqlCommand("INSERT INTO [dbo].[UserImage]([Id], [UserId], [Path]) VALUES (@id, @userId, @path)", connection);             
                 command.Parameters.AddWithValue("@id", userImage.Id);
                 command.Parameters.AddWithValue("@userId", userImage.UserId);
@@ -55,6 +57,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         {
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
+                connection.Open();
                 var command = new SqlCommand("DELETE [UserImage] WHERE [Id] = @id");
                 command.Parameters.AddWithValue("@id", id);
                 command.ExecuteNonQuery();

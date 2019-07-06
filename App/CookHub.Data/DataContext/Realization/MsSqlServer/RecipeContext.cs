@@ -27,7 +27,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             {
                 Id = (int)reader["Id"],
                 Name = (string)reader["Name"],
-                Decription = (string)reader["Decription"],
+                Decription = (string)reader["Description"],
                 Author = _userContext.GetById((int)reader["UserId"]),
                 Ingredients = _ingredientContext.GetAllByRecipeId((int)reader["Id"]),
                 //Images = _recipeImageContext.GetAllByRecipeId((int)reader["Id"])
@@ -44,6 +44,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             var list = new List<Recipe>();
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
+                connection.Open();
                 var command = new SqlCommand("SELECT [Recipe].*, [RecipeImage].[Path] FROM [dbo].[Recipe]" + Typography.NewLine +
                                              "LEFT JOIN[dbo].[RecipeImage] ON[dbo].[Recipe].[Id] = [dbo].[RecipeImage].[RecipeId]", connection);
                 var reader = command.ExecuteReader();

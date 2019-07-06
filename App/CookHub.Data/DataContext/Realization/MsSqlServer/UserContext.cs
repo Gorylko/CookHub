@@ -16,9 +16,8 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             {
                 Id = (int)reader["Id"],
                 Login = (string)reader["Login"],
-                Password = (string)reader["Password"],
                 PhoneNumber = (string)reader["PhoneNumber"],
-                Role = EnumParser.Parse<RoleType>((string)reader["Name"])
+                Role = (RoleType)(int)reader["RoleId"]
             };
         }
 
@@ -26,8 +25,9 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         {
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
+                connection.Open();
                 var list = new List<User>();
-                var command = new SqlCommand("SELECT [dbo].[User] JOIN [dbo].[Role] ON [User].[RoleId] = [dbo].[Role].[Id]", connection);
+                var command = new SqlCommand("SELECT * FROM [dbo].[User] JOIN [dbo].[Role] ON [User].[RoleId] = [dbo].[Role].[Id]", connection);
                 var reader = command.ExecuteReader();
 
                 while (reader.Read())
@@ -43,7 +43,8 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         {
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
-                var command = new SqlCommand("SELECT [dbo].[User] WHERE [dbo].[User].[Id] = @id", connection);
+                connection.Open();
+                var command = new SqlCommand("SELECT * FROM [dbo].[User] WHERE [Id] = @id", connection);
                 command.Parameters.AddWithValue("@id", id);
                 var reader = command.ExecuteReader();
                 reader.Read();
@@ -55,6 +56,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         {
             using(var connection = new SqlConnection(SqlConst.ConnectionString))
             {
+                connection.Open();
                 var command = new SqlCommand("INSERT INTO [dbo].[User]([Id], [Login], [Email], [PhoneNumber], [RoleId]) VALUES (@id, @login, @email, @phoneNumber, @roleId)", connection);
                 //command.Parameters could be one variable: command.Parameters = sqlParameter
                 //if id is long it would be better
@@ -71,6 +73,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         {
             using(var connection = new SqlConnection(SqlConst.ConnectionString))
             {
+                connection.Open();
                 var command = new SqlCommand("DELETE [User] WHERE [Id] = @id");
                 command.Parameters.AddWithValue("@id", id);
                 command.ExecuteNonQuery();

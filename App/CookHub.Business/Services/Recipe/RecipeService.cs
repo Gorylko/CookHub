@@ -1,4 +1,6 @@
-﻿using CookHub.Data.Repositories.Interfaces;
+﻿using CookHub.Data.DataContext.Realization.MsSqlServer;
+using CookHub.Data.Repositories.Interfaces;
+using CookHub.Data.Repositories.Realization;
 using CookHub.Shared.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,11 +12,11 @@ namespace CookHub.Business.Services
 {
     public class RecipeService
     {
-        private IRecipeRepository _recipeRepository;
-        public RecipeService(IRecipeRepository repository)
-        {
-            this._recipeRepository = repository;
-        }
+        private RecipeRepository _recipeRepository = new RecipeRepository(new RecipeContext());
+        //public RecipeService(IRecipeRepository repository)
+        //{
+        //    this._recipeRepository = repository;
+        //}
 
         public void Delete(int id)
         {
