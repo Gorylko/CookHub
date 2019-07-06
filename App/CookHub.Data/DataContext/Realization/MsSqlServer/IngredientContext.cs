@@ -13,31 +13,30 @@ using CookHub.Shared.Entities.Enums;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
-    public class IngredientContext : IDataContext<Ingredient>
+    public class IngredientContext : IIngredientContext
     {
-        private Shared.Entities.Ingredient MapIngredient(SqlDataReader reader)
+        private Ingredient MapIngredient(SqlDataReader reader)
         {
-            Ingredient ingredient = new Ingredient();//тут пихать контейнеркую хрень          
-            NutritionalValue nutritionalValue = new NutritionalValue();//и тут тожЫ
-
-            ingredient.Id = (int)reader["IngredientId"];
-            ingredient.Name = (string)reader["Name"];
-            ingredient.Amount = (int)reader["Amount"];
-            ingredient.Unit = EnumParser.Parse<UnitType>((string)reader["Unit"]);
-
-            nutritionalValue.Protein = (int)reader["Protein"];
-            nutritionalValue.Fat = (int)reader["Fat"];
-            nutritionalValue.Carbohydrate = (int)reader["Carbohydrate"];
-
-            ingredient.NutritionalValue = nutritionalValue;
-            return ingredient;
+            return new Ingredient //переделать
+            {
+                Id = (int)reader["Id"],
+                Name = (string)reader["Name"],
+                Unit = EnumParser.Parse<UnitType>((string)reader["Unit"]),
+                NutritionalValue = new NutritionalValue
+                {
+                    Protein = (int)reader["Protein"],
+                    Fat = (int)reader["Fat"],
+                    Carbohydrate = (int)reader["Сarbohydrate"]
+                }
+            };
         }
 
         public Ingredient GetById(int id)
         {
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
-                var command = new SqlCommand(SqlConst.SelectAllIngredients + Typography.NewLine + "WHERE [Id] = @id", connection);
+                connection.Open();
+                var command = new SqlCommand("SELECT * FROM [Ingredient] WHERE [Id] = @id", connection);
                 command.Parameters.AddWithValue("@id", id);
                 var reader = command.ExecuteReader();
                 reader.Read();
@@ -49,6 +48,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         {
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
+                connection.Open();
                 var command = new SqlCommand("DELETE [Ingredient] WHERE [Id] = @id", connection);
                 command.Parameters.AddWithValue("@id", id);
                 command.ExecuteNonQuery();
@@ -59,6 +59,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         {
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
+                connection.Open();
                 var list = new List<Ingredient>();
                 var command = new SqlCommand("SELECT * FROM [dbo].[Ingredient]", connection);
                 var reader = command.ExecuteReader();
@@ -74,11 +75,32 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         {
             using(var connection = new SqlConnection(SqlConst.ConnectionString))
             {
+                connection.Open();
                 var command = new SqlCommand("INSERT INTO [dbo].[Indredient]([Name], [Protein], [Fat], [Carbohydrate]) VALUES (@name, @protein, @fat, @carbohydrate)", connection);
                 command.Parameters.AddWithValue("@name", ingredient.Name);
                 command.Parameters.AddWithValue("@protein", ingredient.NutritionalValue.Protein);
                 command.Parameters.AddWithValue("@fat", ingredient.NutritionalValue.Fat);
                 command.Parameters.AddWithValue("@carbohydrate", ingredient.NutritionalValue.Carbohydrate);
+            }
+        }
+
+        public IReadOnlyCollection<Ingredient> GetAllByRecipeId(int recipeId)
+        {
+            using (var connection = new SqlConnection(SqlConst.ConnectionString))
+            {
+                connection.Open();
+                var list = new List<Ingredient>();
+                var command = new SqlCommand("SELECT[dbo].[Ingredient].*, [dbo].[Unit].[Name] AS[Unit] FROM[dbo].[RecipeInfo]" + Typography.NewLine +
+                                             "LEFT JOIN[dbo].[Ingredient] ON[dbo].[RecipeInfo].[IngredientId] = [dbo].[Ingredient].[Id]" + Typography.NewLine +
+                                             "LEFT JOIN[dbo].[Unit] ON[dbo].[RecipeInfo].[UnitId] = [dbo].[Unit].[Id]" + Typography.NewLine +
+                                             "WHERE[RecipeId] = @recipeId", connection);
+                command.Parameters.AddWithValue("@recipeId", recipeId);
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    list.Add(MapIngredient(reader));
+                }
+                return list;
             }
         }
     }

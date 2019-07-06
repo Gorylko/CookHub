@@ -17,7 +17,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
     {
         private UserImage MapUserImage(SqlDataReader reader)
         {
-            UserImage userImage = new Shared.Entities.UserImage
+            UserImage userImage = new UserImage
             {
                 Id = (int)reader["Id"],
                 UserId = (int)reader["UserId"],
@@ -31,6 +31,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         {
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
+                connection.Open();
                 var command = new SqlCommand("SELECT [dbo].[UserImage] WHERE [dbo].[UserImage].[Id] = @id", connection);
                 command.Parameters.AddWithValue("@id", id);
                 var reader = command.ExecuteReader();
@@ -43,10 +44,11 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         {
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
+                connection.Open();
                 var command = new SqlCommand("INSERT INTO [dbo].[UserImage]([Id], [UserId], [Path]) VALUES (@id, @userId, @path)", connection);             
-                command.Parameters.AddWithValue("id", userImage.Id);
-                command.Parameters.AddWithValue("userId", userImage.UserId);
-                command.Parameters.AddWithValue("path", userImage.Path);
+                command.Parameters.AddWithValue("@id", userImage.Id);
+                command.Parameters.AddWithValue("@userId", userImage.UserId);
+                command.Parameters.AddWithValue("@path", userImage.Path);
                 command.ExecuteNonQuery();
             }
         }
@@ -55,6 +57,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         {
             using (var connection = new SqlConnection(SqlConst.ConnectionString))
             {
+                connection.Open();
                 var command = new SqlCommand("DELETE [UserImage] WHERE [Id] = @id");
                 command.Parameters.AddWithValue("@id", id);
                 command.ExecuteNonQuery();

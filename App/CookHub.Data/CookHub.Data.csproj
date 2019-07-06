@@ -43,11 +43,19 @@
   <ItemGroup>
     <Compile Include="Constants\SqlConstants.cs" />
     <Compile Include="DataContext\Interfaces\IDataContext.cs" />
+    <Compile Include="DataContext\Interfaces\IIngredientContext.cs" />
+    <Compile Include="DataContext\Interfaces\IRecipeContext.cs" />
     <Compile Include="DataContext\Realization\MsSqlServer\IngredientContext.cs" />
     <Compile Include="DataContext\Realization\MsSqlServer\RecipeContext.cs" />
     <Compile Include="DataContext\Realization\MsSqlServer\UserContext.cs" />
     <Compile Include="DataContext\Realization\MsSqlServer\UserImageContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Interfaces\IIngredientRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRecipeRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRepository.cs" />
+    <Compile Include="Repositories\Realization\IngredientRepository.cs" />
+    <Compile Include="Repositories\Realization\RecipeRepository.cs" />
+    <Compile Include="Repositories\Realization\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CookHub.Shared\CookHub.Shared.csproj">
@@ -55,5 +63,6 @@
       <Name>CookHub.Shared</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

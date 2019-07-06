@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Recipe\IngredientService.cs" />
+    <Compile Include="Services\Recipe\RecipeService.cs" />
+    <Compile Include="Services\Recipe\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\Auth\" />

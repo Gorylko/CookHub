@@ -1,36 +1,42 @@
 ﻿using CookHub.Data.DataContext.Interfaces;
+using CookHub.Data.Repositories.Interfaces;
 using CookHub.Shared.Entities;
 using System.Collections.Generic;
 
-namespace CookHub.Business.Services.Recipe
+namespace CookHub.Business.Services
 {
     public class IngredientService
     {
-        private IDataContext<Ingredient> _ingredientContext;
+        private IIngredientRepository _ingredientRepository;
 
-        public IngredientService(IDataContext<Ingredient> context)
+        public IngredientService(IIngredientRepository context)
         {
-            this._ingredientContext = context;
+            this._ingredientRepository = context;
         }
 
         public Ingredient GetById(int id)
         {
-            return _ingredientContext.GetById(id);
+            return _ingredientRepository.GetById(id);
         }
 
         public IReadOnlyCollection<Ingredient> GetAll()
         {
-            return _ingredientContext.GetAll();
+            return _ingredientRepository.GetAll();
+        }
+
+        public IReadOnlyCollection<Ingredient>GetAllByRecipeId(int recipeId)
+        {
+            return _ingredientRepository.GetAllByRecipeId(recipeId);
         }
 
         public void Detele(int id)
         {
-            _ingredientContext.Delete(id);
+            _ingredientRepository.Delete(id);
         }
 
         public void Save (Ingredient ingredient)
         {
-            _ingredientContext.Save(ingredient);
+            _ingredientRepository.Save(ingredient);
         }
     }
 }

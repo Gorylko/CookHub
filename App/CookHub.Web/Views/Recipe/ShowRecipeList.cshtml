@@ -1,0 +1,20 @@
+﻿@model CookHub.Web.Models.RecipeListViewModel
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<table>
+    @foreach (var recipe in Model.Recipes)
+    {
+        <tr>
+            <td>@recipe.Name</td>
+            <td>
+                <form action="~/Recipe/ShowRecipeInfo">
+                    <input type="submit" value="Открыть" />
+                    <input type="hidden" value="@recipe.Id" name="recipeId"/>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
