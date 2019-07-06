@@ -2,10 +2,11 @@
 using CookHub.Shared.Entities;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using SqlConst = CookHub.Data.Constants.SqlConstants;
 using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
+using CookHub.Shared.Constants;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
@@ -24,6 +25,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         {
             return new Recipe
             {
+                Id = (int)reader["Id"],
                 Name = (string)reader["Name"],
                 Decription = (string)reader["Decription"],
                 Author = _userContext.GetById((int)reader["UserId"]),
@@ -39,7 +41,18 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 
         public IReadOnlyCollection<Recipe> GetAll()
         {
-            throw new NotImplementedException();
+            var list = new List<Recipe>();
+            using (var connection = new SqlConnection(SqlConst.ConnectionString))
+            {
+                var command = new SqlCommand("SELECT [Recipe].*, [RecipeImage].[Path] FROM [dbo].[Recipe]" + Typography.NewLine +
+                                             "LEFT JOIN[dbo].[RecipeImage] ON[dbo].[Recipe].[Id] = [dbo].[RecipeImage].[RecipeId]", connection);
+                var reader = command.ExecuteReader();
+                while(reader.Read())
+                {
+                    list.Add(MapRecipe(reader));
+                }
+                return list;
+            }
         }
 
         public Recipe GetById(int id)
