@@ -58,7 +58,17 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 
         public Recipe GetById(int id)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(SqlConst.ConnectionString))
+            {
+                connection.Open();
+                var command = new SqlCommand("SELECT [Recipe].*, [RecipeImage].[Path] FROM [dbo].[Recipe]" + Typography.NewLine +
+                                             "LEFT JOIN[dbo].[RecipeImage] ON[dbo].[Recipe].[Id] = [dbo].[RecipeImage].[RecipeId]" + Typography.NewLine +
+                                             "WHERE [Recipe].[Id] = @id", connection);
+                command.Parameters.AddWithValue("@id", id);
+                var reader = command.ExecuteReader();
+                reader.Read();
+                return MapRecipe(reader);
+            }
         }
 
         public void Save(Recipe obj)

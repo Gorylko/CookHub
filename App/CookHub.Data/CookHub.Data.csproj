@@ -55,6 +55,7 @@
     <Compile Include="Repositories\Interfaces\IRepository.cs" />
     <Compile Include="Repositories\Realization\IngredientRepository.cs" />
     <Compile Include="Repositories\Realization\RecipeRepository.cs" />
+    <Compile Include="Repositories\Realization\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CookHub.Shared\CookHub.Shared.csproj">

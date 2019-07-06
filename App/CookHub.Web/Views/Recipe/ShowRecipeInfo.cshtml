@@ -2,10 +2,10 @@
 
 @{
     ViewData["Title"] = "View";
+
 }
 
 <h2>View</h2>
-
 <div>
     <h4>Recipe</h4>
     <hr />
@@ -30,7 +30,14 @@
         </dd>
     </dl>
 </div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
-</div>
+<h1>Ингредиенты</h1>
+<table>
+    @foreach (var el in Model.Ingredients)
+    {
+        <tr>
+             <td>@el.Name</td>
+        </tr>
+    }
+</table>
+
+
