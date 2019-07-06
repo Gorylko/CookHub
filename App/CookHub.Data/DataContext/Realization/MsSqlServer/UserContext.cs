@@ -1,4 +1,5 @@
-﻿using CookHub.Shared.Entities;
+﻿using CookHub.Data.DataContext.Interfaces;
+using CookHub.Shared.Entities;
 using CookHub.Shared.Entities.Enums;
 using CookHub.Shared.Helpers;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using SqlConst = CookHub.Data.Constants.SqlConstants;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
-    class UserContext
+    public class UserContext : IDataContext<User>
     {
 
         private User MapUser(SqlDataReader reader)
