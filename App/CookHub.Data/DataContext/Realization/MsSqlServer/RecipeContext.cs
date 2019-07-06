@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
-    public class RecipeContext : IDataContext<Recipe>
+    public class RecipeContext : IRecipeContext
     {
         private UserContext _userContext;
         private IngredientContext _ingredientContext;
@@ -48,6 +48,11 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         }
 
         public void Save(Recipe obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IReadOnlyCollection<Recipe> GetAllByUserId(int userId)
         {
             throw new NotImplementedException();
         }
