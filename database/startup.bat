@@ -16,6 +16,7 @@ sqlcmd -S %server% -i tables\user\user.sql
 sqlcmd -S %server% -i tables\user\userImage.sql
 
 
+sqlcmd -S %server% -i tables\recipe\category.sql
 sqlcmd -S %server% -i tables\recipe\recipe.sql
 sqlcmd -S %server% -i tables\recipe\ingredient.sql
 sqlcmd -S %server% -i tables\recipe\recipeImage.sql
