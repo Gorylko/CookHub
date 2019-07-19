@@ -1,103 +1,103 @@
 USE [CookHubDB];
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('�����', 100, 100, 100)
+VALUES ('Vodka', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('��������', 100, 100, 100)
+VALUES ('Potato', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('����', 100, 100, 100)
+VALUES ('Egg', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('�������', 100, 100, 100)
+VALUES ('Pork', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('���', 100, 100, 100)
+VALUES ('Cheese', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('������', 100, 100, 100)
+VALUES ('Milk', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('������', 100, 100, 100)
+VALUES ('Cottage cheese', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('����', 100, 100, 100)
+VALUES ('Salt', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('�����', 100, 100, 100)
+VALUES ('Sugar', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('����� ������', 100, 100, 100)
+VALUES ('Black pepper', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('����� �������', 100, 100, 100)
+VALUES ('Red pepper', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('����', 100, 100, 100)
+VALUES ('Soda', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('����', 100, 100, 100)
+VALUES ('Water', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('����', 100, 100, 100)
+VALUES ('Flour', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('������� �������', 100, 100, 100)
+VALUES ('Bitter chocolate', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('������� ��������', 100, 100, 100)
+VALUES ('Milk chocolate', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('������', 100, 100, 100)
+VALUES ('Greenery', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('������', 100, 100, 100)
+VALUES ('Cream', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('������', 100, 100, 100)
+VALUES ('Hen', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('��������', 100, 100, 100)
+VALUES ('Beef', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('����������� ����', 100, 100, 100)
+VALUES ('Quail egg', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('������', 100, 100, 100)
+VALUES ('Cucumber', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('����� �������', 100, 100, 100)
+VALUES ('Sweet pepper', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('������', 100, 100, 100)
+VALUES ('Olives', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('�������� �����', 100, 100, 100)
+VALUES ('Tomato Paste', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('�������', 100, 100, 100)
+VALUES ('Pumpkin', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('������', 100, 100, 100)
+VALUES ('Salami', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('������� ���������', 100, 100, 100)
+VALUES ('Hunting sausage', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('����� ���������', 100, 100, 100)
+VALUES ('Butter', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('����� ������������', 100, 100, 100)
+VALUES ('Sunflower oil', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('������������ ������', 100, 100, 100)
+VALUES ('Breadcrumbs', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('����', 100, 100, 100)
+VALUES ('Bread', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('������� ����������', 100, 100, 100)
+VALUES ('Doctors sausage', 100, 100, 100)
 
 INSERT INTO [dbo].[Ingredient]([Name], [Protein], [Fat], [Carbohydrate])
-VALUES ('�������', 100, 100, 100)
+VALUES ('Tomato', 100, 100, 100)
