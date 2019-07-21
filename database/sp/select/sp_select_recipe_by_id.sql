@@ -8,12 +8,13 @@ BEGIN
 		[Recipe].[Id],
 		[Recipe].[Name],
 		[Recipe].[Description],
-		[dbo].func_get_category_by_id([Recipe].[CategoryId]) AS [Category],
-		[RecipeImage].[Path]
-	
+		[dbo].func_get_category_by_id([Recipe].[CategoryId]) AS [Category]
+
 	FROM [dbo].[Recipe]
-    LEFT JOIN[dbo].[RecipeImage] ON[dbo].[Recipe].[Id] = [dbo].[RecipeImage].[RecipeId]
     WHERE [Recipe].[Id] = @recipeId
+
+	EXEC [dbo].[sp_select_ingredients_by_recipe_id] @recipeId
+	EXEC [dbo].[sp_select_images_by_recipe_id] @recipeId
 END
 
 

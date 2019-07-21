@@ -10,6 +10,9 @@ INSERT INTO [dbo].[RecipeImage]([RecipeId], [Path])
 VALUES(3, 'database/images/recipe/eggsInMeat.jpg')
 
 INSERT INTO [dbo].[RecipeImage]([RecipeId], [Path])
+VALUES(3, 'database/images/recipe/eggsInMeat2.jpg')
+
+INSERT INTO [dbo].[RecipeImage]([RecipeId], [Path])
 VALUES(4, 'database/images/recipe/pizza.jpg')
 
 INSERT INTO [dbo].[RecipeImage]([RecipeId], [Path])

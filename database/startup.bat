@@ -37,7 +37,8 @@ sqlcmd -S %server% -i inserts\recipe\recipeImage.sql
 sqlcmd -S %server% -i functions\func_get_category_by_id.sql
 sqlcmd -S %server% -i functions\func_get_unit_by_id.sql
 
-sqlcmd -S %server% -i sp\select\sp_select_recipe_by_id.sql
 sqlcmd -S %server% -i sp\select\sp_select_ingredients_by_recipe_id.sql
+sqlcmd -S %server% -i sp\select\sp_select_images_by_recipe_id.sql
+sqlcmd -S %server% -i sp\select\sp_select_recipe_by_id.sql
 
 pause
