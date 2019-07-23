@@ -29,13 +29,13 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             this._ingredientContext = new IngredientContext();
         }
 
-        private Recipe MapRecipe(DataTable recipeTable, DataTable ingredientsTable, DataTable imagesTable)
+        private Recipe MapRecipe(DataRow recipeData, DataTable ingredientsTable, DataTable imagesTable)
         {
             return new Recipe
             {
-                Id = dataset,
-                Name = (string)reader["Name"],
-                Decription = (string)reader["Description"],
+                Id = recipeData.Field<int>("Id"),
+                Name = recipeData.Field<string>("Name"),
+                Decription = recipeData.Field<string>("Decription"),
                 Author = _userContext.GetById((int)reader["UserId"]),
                 Ingredients = _ingredientContext.GetAllByRecipeId((int)reader["Id"]),
                 //Images = _recipeImageContext.GetAllByRecipeId((int)reader["Id"])
@@ -91,7 +91,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             var dataSet = _executor.ExecuteDataSet("sp_select_recipe_by_id", new Dictionary<string, object> {
                 {"recipeId", id}
             });
-            return MapRecipe(dataSet);
+            return MapRecipe(dataSet.Tables[0].Rows[0], dataSet.Tables[1], dataSet.Tables[2]);
         }
 
         public void Save(Recipe obj)
