@@ -26,7 +26,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
                 {
                     Protein = (int)reader["Protein"],
                     Fat = (int)reader["Fat"],
-                    Carbohydrate = (int)reader["Сarbohydrate"]
+                    Carbohydrate = (int)reader["Carbohydrate"]
                 }
             };
         }

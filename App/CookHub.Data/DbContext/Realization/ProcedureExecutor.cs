@@ -1,4 +1,5 @@
 ﻿using CookHub.Data.Constants;
+using CookHub.Data.DbContext.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace CookHub.Data.DbContext.Realization
 {
-    public class ProcedureExecutor
+    public class ProcedureExecutor : IExecutor
     {
-        public DataSet ExecuteDataSet(string procedureName, IDictionary<string, object> values)
+        public DataSet ExecuteDataSet(string procedureName, IDictionary<string, object> values = null)
         {
             DataSet dataSet = null;
             using (var connection = new SqlConnection(SqlConstants.ConnectionString))
@@ -26,7 +27,7 @@ namespace CookHub.Data.DbContext.Realization
             return dataSet;
         }
 
-        public int ExecuteNonQuery(string procedureName, IDictionary<string, object> values)
+        public int ExecuteNonQuery(string procedureName, IDictionary<string, object> values = null)
         {
             using (var connecton = new SqlConnection(SqlConstants.ConnectionString))
             {
@@ -37,7 +38,7 @@ namespace CookHub.Data.DbContext.Realization
             }
         }
 
-        private SqlCommand CreateProcedure(string procedureName, IDictionary<string, object> values)
+        private SqlCommand CreateProcedure(string procedureName, IDictionary<string, object> values = null)
         {
             var command = new SqlCommand
             {
