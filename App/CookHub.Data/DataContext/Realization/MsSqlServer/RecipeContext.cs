@@ -37,7 +37,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
                 Name = recipeData.Field<string>("Name"),
                 Decription = recipeData.Field<string>("Decription"),
                 Author = _userContext.GetById((int)reader["UserId"]),
-                Ingredients = _ingredientContext.GetAllByRecipeId((int)reader["Id"]),
+                Ingredients = MapIngredients(ingredientsTable),
                 //Images = _recipeImageContext.GetAllByRecipeId((int)reader["Id"])
             };
         }
