@@ -1,13 +1,10 @@
 ﻿using CookHub.Data.DbContext.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data;
-using System.Threading.Tasks;
 using CookHub.Shared.Entities;
 using CookHub.Shared.Entities.Enums;
 using CookHub.Shared.Helpers;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 
 namespace CookHub.ConsoleTester.Worker
 {

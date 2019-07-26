@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CookHub.Data\CookHub.Data.csproj">
-      <Project>{D03323A0-078C-4A1D-AD88-AD7E2A5A2732}</Project>
+      <Project>{1bccf627-974c-4099-a046-268ceaa183dd}</Project>
       <Name>CookHub.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\CookHub.Shared\CookHub.Shared.csproj">
