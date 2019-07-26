@@ -5,13 +5,13 @@ VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CookHub.Web", "CookHub.Web\CookHub.Web.csproj", "{8E3C6698-23EB-4CEF-BFAA-9C7CFAFDA1C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookHub.Data.Test", "CookHub.Data.Test\CookHub.Data.Test.csproj", "{698306F9-1786-439C-B56F-0E0286C5EF4A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookHub.Data", "CookHub.Data\CookHub.Data.csproj", "{D03323A0-078C-4A1D-AD88-AD7E2A5A2732}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookHub.Shared", "CookHub.Shared\CookHub.Shared.csproj", "{7D88B35F-D9FE-40DF-9DD7-AE2FA4F6B061}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookHub.Business", "CookHub.Business\CookHub.Business.csproj", "{C584B94E-DBD6-4A41-B9E3-E262E81AE451}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookHub.ConsoleTester", "CookHub.ConsoleTester\CookHub.ConsoleTester.csproj", "{34256200-A0D2-4239-BA4E-28C2EB31AE9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		{8E3C6698-23EB-4CEF-BFAA-9C7CFAFDA1C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E3C6698-23EB-4CEF-BFAA-9C7CFAFDA1C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E3C6698-23EB-4CEF-BFAA-9C7CFAFDA1C8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{698306F9-1786-439C-B56F-0E0286C5EF4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{698306F9-1786-439C-B56F-0E0286C5EF4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{698306F9-1786-439C-B56F-0E0286C5EF4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{698306F9-1786-439C-B56F-0E0286C5EF4A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D03323A0-078C-4A1D-AD88-AD7E2A5A2732}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D03323A0-078C-4A1D-AD88-AD7E2A5A2732}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D03323A0-078C-4A1D-AD88-AD7E2A5A2732}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{C584B94E-DBD6-4A41-B9E3-E262E81AE451}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C584B94E-DBD6-4A41-B9E3-E262E81AE451}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C584B94E-DBD6-4A41-B9E3-E262E81AE451}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34256200-A0D2-4239-BA4E-28C2EB31AE9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34256200-A0D2-4239-BA4E-28C2EB31AE9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34256200-A0D2-4239-BA4E-28C2EB31AE9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34256200-A0D2-4239-BA4E-28C2EB31AE9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

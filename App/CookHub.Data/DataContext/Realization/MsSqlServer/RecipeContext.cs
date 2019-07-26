@@ -1,17 +1,12 @@
 ﻿using CookHub.Data.DataContext.Interfaces;
-using CookHub.Shared.Entities;
-using System;
-using System.Collections.Generic;
-using SqlConst = CookHub.Data.Constants.SqlConstants;
-using System.Data.SqlClient;
-using System.Text;
-using System.Threading.Tasks;
-using CookHub.Shared.Constants;
 using CookHub.Data.DbContext.Interfaces;
 using CookHub.Data.DbContext.Realization;
-using System.Data;
+using CookHub.Shared.Entities;
 using CookHub.Shared.Entities.Enums;
 using CookHub.Shared.Helpers;
+using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
@@ -29,14 +24,14 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             this._ingredientContext = new IngredientContext();
         }
 
-        private Recipe MapRecipe(DataRow recipeData, DataTable ingredientsTable, DataTable imagesTable)
+        private Recipe MapRecipe(DataRow recipeRow, DataTable ingredientsTable, DataTable imagesTable, DataRow userRow)
         {
             return new Recipe
             {
-                Id = recipeData.Field<int>("Id"),
-                Name = recipeData.Field<string>("Name"),
-                Decription = recipeData.Field<string>("Decription"),
-                Author = _userContext.GetById((int)reader["UserId"]),
+                Id = recipeRow.Field<int>("Id"),
+                Name = recipeRow.Field<string>("Name"),
+                Description = recipeRow.Field<string>("Description"),
+                Author = MapUser(userRow),
                 Ingredients = MapIngredients(ingredientsTable),
                 //Images = _recipeImageContext.GetAllByRecipeId((int)reader["Id"])
             };
@@ -61,6 +56,18 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             }).ToList();
         }
 
+        private User MapUser(DataRow userRow)
+        {
+            return new User
+            {
+                Id = userRow.Field<int>("Id"),
+                Login = userRow.Field<string>("Login"),
+                Email = userRow.Field<string>("Email"),
+                PhoneNumber = userRow.Field<string>("PhoneNumder"),
+                Role = (RoleType)userRow.Field<int>("RoleId")
+            };
+        }
+
         public void Delete(int id)
         {
             throw new NotImplementedException();
@@ -68,22 +75,23 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 
         public IReadOnlyCollection<Recipe> GetAll()
         {
-            var list = new List<Recipe>();
-            using (var connection = new SqlConnection(SqlConst.ConnectionString))
-            {
-                connection.Open();
-                var command = new SqlCommand("SELECT [Recipe].*, [RecipeImage].[Path] FROM [dbo].[Recipe]" + Typography.NewLine +
-                                             "LEFT JOIN[dbo].[RecipeImage] ON[dbo].[Recipe].[Id] = [dbo].[RecipeImage].[RecipeId]", connection);
-                var reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    list.Add(MapRecipe(reader));
-                }
-                return list;
-            }
+            //var list = new List<Recipe>();
+            //using (var connection = new SqlConnection(SqlConst.ConnectionString))
+            //{
+            //    connection.Open();
+            //    var command = new SqlCommand("SELECT [Recipe].*, [RecipeImage].[Path] FROM [dbo].[Recipe]" + Typography.NewLine +
+            //                                 "LEFT JOIN[dbo].[RecipeImage] ON[dbo].[Recipe].[Id] = [dbo].[RecipeImage].[RecipeId]", connection);
+            //    var reader = command.ExecuteReader();
+            //    while (reader.Read())
+            //    {
+            //        list.Add(MapRecipe(reader));
+            //    }
+            //    return list;
+            //}
             //var list = new List<Recipe>();
             //var dataSet = _executor.ExecuteDataSet("");
             //return list;
+            throw new NotImplementedException();
         }
 
         public Recipe GetById(int id)
@@ -91,7 +99,13 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             var dataSet = _executor.ExecuteDataSet("sp_select_recipe_by_id", new Dictionary<string, object> {
                 {"recipeId", id}
             });
-            return MapRecipe(dataSet.Tables[0].Rows[0], dataSet.Tables[1], dataSet.Tables[2]);
+
+            DataRow recipeRow     = dataSet.Tables[0].Rows[0];
+            DataTable ingrTable   = dataSet.Tables[1];
+            DataTable imagesTable = dataSet.Tables[2];
+            DataRow userRow       = dataSet.Tables[3].Rows[0];
+
+            return MapRecipe(recipeRow, ingrTable, imagesTable, userRow);
         }
 
         public void Save(Recipe obj)

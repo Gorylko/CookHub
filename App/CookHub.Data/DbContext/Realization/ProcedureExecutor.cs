@@ -20,7 +20,7 @@ namespace CookHub.Data.DbContext.Realization
                 var procedure = CreateProcedure(procedureName, values);
                 procedure.Connection = connection;
                 connection.Open();
-                var adapter = new SqlDataAdapter();
+                var adapter = new SqlDataAdapter(procedure);
                 dataSet = new DataSet();
                 adapter.Fill(dataSet);
             }
