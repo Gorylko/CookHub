@@ -24,7 +24,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             this._ingredientContext = new IngredientContext();
         }
 
-        private Recipe MapRecipe(DataRow recipeRow, DataTable ingredientsTable, DataTable imagesTable, DataRow userRow)
+        private Recipe MapEntity(DataRow recipeRow, DataTable ingredientsTable, DataTable imagesTable, DataRow userRow)
         {
             return new Recipe
             {
@@ -33,15 +33,9 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
                 Description = recipeRow.Field<string>("Description"),
                 Author = _userContext.MapUser(userRow),
                 Ingredients = _ingredientContext.MapIngredients(ingredientsTable),
-                //Images = _recipeImageContext.GetAllByRecipeId((int)reader["Id"])
+                Images = _recipeImageContext.MapImages(imagesTable)
             };
         }
-
-        #region Mapping
-
-
-
-        #endregion
 
         public void Delete(int id)
         {
@@ -80,7 +74,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             DataTable imagesTable = dataSet.Tables[2];
             DataRow userRow       = dataSet.Tables[3].Rows[0];
 
-            return MapRecipe(recipeRow, ingrTable, imagesTable, userRow);
+            return MapEntity(recipeRow, ingrTable, imagesTable, userRow);
         }
 
         public void Save(Recipe obj)

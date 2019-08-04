@@ -16,7 +16,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
     class UserImageContext
     {
-        private UserImage MapUserImage(SqlDataReader reader)
+        private UserImage MapEntity(SqlDataReader reader)
         {
             UserImage userImage = new UserImage
             {
@@ -30,39 +30,17 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 
         public UserImage GetById(int id)
         {
-            using (var connection = new SqlConnection(SqlConst.ConnectionString))
-            {
-                connection.Open();
-                var command = new SqlCommand("SELECT [dbo].[UserImage] WHERE [dbo].[UserImage].[Id] = @id", connection);
-                command.Parameters.AddWithValue("@id", id);
-                var reader = command.ExecuteReader();
-                reader.Read();
-                return MapUserImage(reader);
-            }
+            return null;
         }
 
         public void Save(UserImage userImage)
         {
-            using (var connection = new SqlConnection(SqlConst.ConnectionString))
-            {
-                connection.Open();
-                var command = new SqlCommand("INSERT INTO [dbo].[UserImage]([Id], [UserId], [Path]) VALUES (@id, @userId, @path)", connection);             
-                command.Parameters.AddWithValue("@id", userImage.Id);
-                command.Parameters.AddWithValue("@userId", userImage.UserId);
-                command.Parameters.AddWithValue("@path", userImage.Path);
-                command.ExecuteNonQuery();
-            }
+
         }
 
         public void Delete(int id)
         {
-            using (var connection = new SqlConnection(SqlConst.ConnectionString))
-            {
-                connection.Open();
-                var command = new SqlCommand("DELETE [UserImage] WHERE [Id] = @id");
-                command.Parameters.AddWithValue("@id", id);
-                command.ExecuteNonQuery();
-            }
+
         }
     }
 }

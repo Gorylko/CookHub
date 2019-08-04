@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,5 +16,9 @@ namespace CookHub.Data.DataContext.Interfaces
         void Delete(int id);
 
         void Save(T obj);
+
+        T MapEntity(DataRow row);
+
+        IReadOnlyCollection<T> MapEntities(DataTable table);
     }
 }

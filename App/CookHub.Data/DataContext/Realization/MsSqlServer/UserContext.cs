@@ -12,7 +12,9 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
     public class UserContext : IDataContext<User>
     {
-        public User MapUser(DataRow userRow)
+        private IUser
+
+        public User MapEntity(DataRow userRow)
         {
             return new User
             {
@@ -44,5 +46,9 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 
         }
 
+        public IReadOnlyCollection<User> MapEntities(DataTable table)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
