@@ -13,18 +13,17 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
     public class RecipeContext : IRecipeContext
     {
-        private UserContext _userContext;
-        private IngredientContext _ingredientContext;
+        private UserContext _userContext = new UserContext();
+        private IngredientContext _ingredientContext = new IngredientContext();
         private IExecutor _executor;
+        private RecipeImageContext _recipeImageContext = new RecipeImageContext();
 
         public RecipeContext()
         {
             _executor = new ProcedureExecutor();
-            this._userContext = new UserContext();
-            this._ingredientContext = new IngredientContext();
         }
 
-        private Recipe MapEntity(DataRow recipeRow, DataTable ingredientsTable, DataTable imagesTable, DataRow userRow)
+        internal Recipe MapRecipe(DataRow recipeRow, DataTable ingredientsTable, DataTable imagesTable, DataRow userRow)
         {
             return new Recipe
             {
@@ -37,6 +36,20 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             };
         }
 
+        public Recipe GetById(int id)
+        {
+            var dataSet = _executor.ExecuteDataSet("sp_select_recipe_by_id", new Dictionary<string, object> {
+                {"recipeId", id}
+            });
+
+            DataRow recipeRow = dataSet.Tables[0].Rows[0];
+            DataTable ingrTable = dataSet.Tables[1];
+            DataTable imagesTable = dataSet.Tables[2];
+            DataRow userRow = dataSet.Tables[3].Rows[0];
+
+            return MapRecipe(recipeRow, ingrTable, imagesTable, userRow);
+        }
+
         public void Delete(int id)
         {
             throw new NotImplementedException();
@@ -44,37 +57,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 
         public IReadOnlyCollection<Recipe> GetAll()
         {
-            //var list = new List<Recipe>();
-            //using (var connection = new SqlConnection(SqlConst.ConnectionString))
-            //{
-            //    connection.Open();
-            //    var command = new SqlCommand("SELECT [Recipe].*, [RecipeImage].[Path] FROM [dbo].[Recipe]" + Typography.NewLine +
-            //                                 "LEFT JOIN[dbo].[RecipeImage] ON[dbo].[Recipe].[Id] = [dbo].[RecipeImage].[RecipeId]", connection);
-            //    var reader = command.ExecuteReader();
-            //    while (reader.Read())
-            //    {
-            //        list.Add(MapRecipe(reader));
-            //    }
-            //    return list;
-            //}
-            //var list = new List<Recipe>();
-            //var dataSet = _executor.ExecuteDataSet("");
-            //return list;
             throw new NotImplementedException();
-        }
-
-        public Recipe GetById(int id)
-        {
-            var dataSet = _executor.ExecuteDataSet("sp_select_recipe_by_id", new Dictionary<string, object> {
-                {"recipeId", id}
-            });
-
-            DataRow recipeRow     = dataSet.Tables[0].Rows[0];
-            DataTable ingrTable   = dataSet.Tables[1];
-            DataTable imagesTable = dataSet.Tables[2];
-            DataRow userRow       = dataSet.Tables[3].Rows[0];
-
-            return MapEntity(recipeRow, ingrTable, imagesTable, userRow);
         }
 
         public void Save(Recipe obj)

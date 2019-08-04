@@ -14,18 +14,16 @@ using System.Data;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
-    class UserImageContext
+    class UserImageContext : IDataContext<UserImage>
     {
-        private UserImage MapEntity(SqlDataReader reader)
+        internal UserImage MapImage(DataRow row)
         {
-            UserImage userImage = new UserImage
-            {
-                Id = (int)reader["Id"],
-                UserId = (int)reader["UserId"],
-                Path = (string)reader["Path"],        
-            };
+            return null;
+        }
 
-            return userImage;
+        internal IReadOnlyCollection<UserImage> MapImages(DataTable table)
+        {
+            throw new NotImplementedException();
         }
 
         public UserImage GetById(int id)
@@ -41,6 +39,11 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         public void Delete(int id)
         {
 
+        }
+
+        public IReadOnlyCollection<UserImage> GetAll()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -16,9 +16,5 @@ namespace CookHub.Data.DataContext.Interfaces
         void Delete(int id);
 
         void Save(T obj);
-
-        T MapEntity(DataRow row);
-
-        IReadOnlyCollection<T> MapEntities(DataTable table);
     }
 }

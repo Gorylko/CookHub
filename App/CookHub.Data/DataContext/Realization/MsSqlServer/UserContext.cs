@@ -12,9 +12,9 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
     public class UserContext : IDataContext<User>
     {
-        private IUser
+        private UserImageContext _userImageContext = new UserImageContext();
 
-        public User MapEntity(DataRow userRow)
+        internal User MapUser(DataRow userRow)
         {
             return new User
             {

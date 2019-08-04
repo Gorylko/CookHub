@@ -16,7 +16,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
     public class IngredientContext : IIngredientContext
     {
-        public IReadOnlyCollection<Ingredient> MapIngredients(DataTable table)
+        internal IReadOnlyCollection<Ingredient> MapIngredients(DataTable table)
         {
             return table.AsEnumerable().Select(ingr => {
                 return new Ingredient
