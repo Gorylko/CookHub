@@ -31,42 +31,17 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
                 Id = recipeRow.Field<int>("Id"),
                 Name = recipeRow.Field<string>("Name"),
                 Description = recipeRow.Field<string>("Description"),
-                Author = MapUser(userRow),
-                Ingredients = MapIngredients(ingredientsTable),
+                Author = _userContext.MapUser(userRow),
+                Ingredients = _ingredientContext.MapIngredients(ingredientsTable),
                 //Images = _recipeImageContext.GetAllByRecipeId((int)reader["Id"])
             };
         }
 
-        private IReadOnlyCollection<Ingredient> MapIngredients(DataTable table)
-        {
-            return table.AsEnumerable().Select(ingr => {
-                return new Ingredient
-                {
-                    Id = ingr.Field<int>("Id"),
-                    Name = ingr.Field<string>("Name"),
-                    Amount = ingr.Field<int>("Amount"),
-                    Unit = EnumParser.Parse<UnitType>(ingr.Field<string>("Unit")),
-                    NutritionalValue = new NutritionalValue
-                    {
-                        Protein = ingr.Field<int>("Protein"),
-                        Fat = ingr.Field<int>("Fat"),
-                        Carbohydrate = ingr.Field<int>("Carbohydrate")
-                    }
-                };
-            }).ToList();
-        }
+        #region Mapping
 
-        private User MapUser(DataRow userRow)
-        {
-            return new User
-            {                
-                Id = userRow.Field<int>("Id"),
-                Login = userRow.Field<string>("Login"),
-                Email = userRow.Field<string>("Email"),
-                PhoneNumber = userRow.Field<string>("PhoneNumber"),
-                Role = (RoleType)userRow.Field<int>("RoleId")
-            };
-        }
+
+
+        #endregion
 
         public void Delete(int id)
         {
