@@ -59,11 +59,11 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
         private User MapUser(DataRow userRow)
         {
             return new User
-            {
+            {                
                 Id = userRow.Field<int>("Id"),
                 Login = userRow.Field<string>("Login"),
                 Email = userRow.Field<string>("Email"),
-                PhoneNumber = userRow.Field<string>("PhoneNumder"),
+                PhoneNumber = userRow.Field<string>("PhoneNumber"),
                 Role = (RoleType)userRow.Field<int>("RoleId")
             };
         }
