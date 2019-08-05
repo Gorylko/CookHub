@@ -17,7 +17,7 @@ namespace CookHub.Shared.Entities
 
         public string PhoneNumber { get; set; }
 
-        public Image Image { get; set; }
+        public IReadOnlyCollection<Image> Images { get; set; }
 
         public RoleType Role { get; set; }
 

@@ -3,6 +3,7 @@ using CookHub.Shared.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
@@ -15,7 +16,13 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 
         public IReadOnlyCollection<Image> MapEntities(DataTable table)
         {
-            throw new NotImplementedException();
+            return table.AsEnumerable().Select(image => {
+                return new Image
+                {
+                    Id = image.Field<int>("Id"),
+                    Path = image.Field<string>("Path")
+                };
+            }).ToList();
         }
 
         public Image GetById(int id)

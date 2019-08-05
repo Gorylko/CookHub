@@ -1,4 +1,5 @@
 ﻿using CookHub.Data.DataContext.Interfaces;
+using CookHub.Data.DataTypes;
 using CookHub.Data.DbContext.Interfaces;
 using CookHub.Data.DbContext.Realization;
 using CookHub.Shared.Entities;
@@ -13,7 +14,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
     public class RecipeContext : IRecipeContext
     {
-        private IMapper<User, DataRow, DataTable> _userMapper;
+        private IMapper<User, UserData, DataTable> _userMapper;
         private IMapper<Ingredient, DataRow, DataTable> _ingredientMapper;
         private IExecutor _executor;
         private IMapper<Image, DataRow, DataTable> _recipeImageMapper;
@@ -33,7 +34,10 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
                 Id = recipeRow.Field<int>("Id"),
                 Name = recipeRow.Field<string>("Name"),
                 Description = recipeRow.Field<string>("Description"),
-                Author = _userMapper.MapEntity(),
+                Author = _userMapper.MapEntity(new UserData {
+                    UserRow = userRow,
+                    ImagesTable = userImageTable
+                }),
                 Ingredients = _ingredientMapper.MapEntities(ingredientsTable),
                 Images = _recipeImageMapper.MapEntities(recipeImagesTable)
             };
