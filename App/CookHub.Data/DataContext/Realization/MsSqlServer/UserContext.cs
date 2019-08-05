@@ -7,9 +7,9 @@ using System.Data;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
-    public class UserContext : IDataContext<User>, IMapper<User>
+    public class UserContext : IDataContext<User>, IMapper<User, DataRow, DataTable>
     {
-        private IMapper<Image> _userImageMapper;
+        private IMapper<Image, DataRow, DataTable> _userImageMapper;
 
         public UserContext()
         {
@@ -25,6 +25,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
                 Email = userRow.Field<string>("Email"),
                 PhoneNumber = userRow.Field<string>("PhoneNumber"),
                 Role = (RoleType)userRow.Field<int>("RoleId"),
+                Image = _userImageMapper.MapEntity()
             };
         }
 

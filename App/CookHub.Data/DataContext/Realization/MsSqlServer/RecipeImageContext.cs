@@ -8,7 +8,7 @@ using System.Text;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
-    public class RecipeImageContext : IDataContext<Image>, IMapper<Image>
+    public class RecipeImageContext : IDataContext<Image>, IMapper<Image, DataRow, DataTable>
     {
         public IReadOnlyCollection<Image> MapEntities(DataTable imagesTable)
         {

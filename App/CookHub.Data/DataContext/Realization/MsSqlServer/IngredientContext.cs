@@ -14,7 +14,7 @@ using System.Data;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
-    public class IngredientContext : IIngredientContext, IMapper<Ingredient>
+    public class IngredientContext : IIngredientContext, IMapper<Ingredient, DataRow, DataTable>
     {
         public IReadOnlyCollection<Ingredient> MapEntities(DataTable table)
         {

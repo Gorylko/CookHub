@@ -13,10 +13,10 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
     public class RecipeContext : IRecipeContext
     {
-        private IMapper<User> _userMapper;
-        private IMapper<Ingredient> _ingredientMapper;
+        private IMapper<User, DataRow, DataTable> _userMapper;
+        private IMapper<Ingredient, DataRow, DataTable> _ingredientMapper;
         private IExecutor _executor;
-        private IMapper<Image> _recipeImageMapper;
+        private IMapper<Image, DataRow, DataTable> _recipeImageMapper;
 
         public RecipeContext() //conteiner here
         {
@@ -26,16 +26,16 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             _recipeImageMapper = new RecipeImageContext();
         }
 
-        internal Recipe MapRecipe(DataRow recipeRow, DataTable ingredientsTable, DataTable imagesTable, DataRow userRow)
+        internal Recipe MapRecipe(DataRow recipeRow, DataTable ingredientsTable, DataTable recipeImagesTable, DataRow userRow, DataTable userImageTable)
         {
             return new Recipe
             {
                 Id = recipeRow.Field<int>("Id"),
                 Name = recipeRow.Field<string>("Name"),
                 Description = recipeRow.Field<string>("Description"),
-                Author = _userMapper.MapEntity(userRow),
+                Author = _userMapper.MapEntity(),
                 Ingredients = _ingredientMapper.MapEntities(ingredientsTable),
-                Images = _recipeImageMapper.MapEntities(imagesTable)
+                Images = _recipeImageMapper.MapEntities(recipeImagesTable)
             };
         }
 
@@ -47,10 +47,11 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 
             DataRow recipeRow = dataSet.Tables[0].Rows[0];
             DataTable ingrTable = dataSet.Tables[1];
-            DataTable imagesTable = dataSet.Tables[2];
+            DataTable recipeImagesTable = dataSet.Tables[2];
             DataRow userRow = dataSet.Tables[3].Rows[0];
+            DataTable userImagesTable = dataSet.Tables[4];
 
-            return MapRecipe(recipeRow, ingrTable, imagesTable, userRow);
+            return MapRecipe(recipeRow, ingrTable, recipeImagesTable, userRow, userImagesTable);
         }
 
         public void Delete(int id)
