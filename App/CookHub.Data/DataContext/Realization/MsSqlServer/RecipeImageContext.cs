@@ -8,9 +8,9 @@ using System.Text;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
-    public class RecipeImageContext : IDataContext<RecipeImage>
+    public class RecipeImageContext : IDataContext<RecipeImage>, IMapper<RecipeImage>
     {
-        internal IReadOnlyCollection<RecipeImage> MapImages(DataTable imagesTable)
+        public IReadOnlyCollection<RecipeImage> MapEntities(DataTable imagesTable)
         {
             return imagesTable.AsEnumerable().Select(row =>
             {
@@ -20,6 +20,11 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
                     Path = row.Field<string>("Path")
                 };
             }).ToList();
+        }
+
+        public RecipeImage MapEntity(DataRow row)
+        {
+            return null;
         }
 
         public void Delete(int id)

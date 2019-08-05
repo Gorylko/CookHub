@@ -14,9 +14,9 @@ using System.Data;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
-    public class IngredientContext : IIngredientContext
+    public class IngredientContext : IIngredientContext, IMapper<Ingredient>
     {
-        internal IReadOnlyCollection<Ingredient> MapIngredients(DataTable table)
+        public IReadOnlyCollection<Ingredient> MapEntities(DataTable table)
         {
             return table.AsEnumerable().Select(ingr => {
                 return new Ingredient
@@ -33,6 +33,11 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
                     }
                 };
             }).ToList();
+        }
+
+        public Ingredient MapEntity(DataRow row)
+        {
+            return null;
         }
 
         public Ingredient GetById(int id)

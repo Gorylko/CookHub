@@ -14,14 +14,14 @@ using System.Data;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
-    class UserImageContext : IDataContext<UserImage>
+    class UserImageContext : IDataContext<UserImage>, IMapper<UserImage>
     {
-        internal UserImage MapImage(DataRow row)
+        public UserImage MapEntity(DataRow row)
         {
             return null;
         }
 
-        internal IReadOnlyCollection<UserImage> MapImages(DataTable table)
+        public IReadOnlyCollection<UserImage> MapEntities(DataTable table)
         {
             throw new NotImplementedException();
         }
