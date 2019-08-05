@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-﻿namespace CookHub.Shared.Entities
+namespace CookHub.Shared.Entities
 {
-    public class RecipeImage
+    public class Image
     {
         public int Id { get; set; }
 

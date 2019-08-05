@@ -8,13 +8,13 @@ using System.Text;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
-    public class RecipeImageContext : IDataContext<RecipeImage>, IMapper<RecipeImage>
+    public class RecipeImageContext : IDataContext<Image>, IMapper<Image>
     {
-        public IReadOnlyCollection<RecipeImage> MapEntities(DataTable imagesTable)
+        public IReadOnlyCollection<Image> MapEntities(DataTable imagesTable)
         {
             return imagesTable.AsEnumerable().Select(row =>
             {
-                return new RecipeImage
+                return new Image
                 {
                     Id = row.Field<int>("Id"),
                     Path = row.Field<string>("Path")
@@ -22,7 +22,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             }).ToList();
         }
 
-        public RecipeImage MapEntity(DataRow row)
+        public Image MapEntity(DataRow row)
         {
             return null;
         }
@@ -32,17 +32,17 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             throw new NotImplementedException();
         }
 
-        public IReadOnlyCollection<RecipeImage> GetAll()
+        public IReadOnlyCollection<Image> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public RecipeImage GetById(int id)
+        public Image GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void Save(RecipeImage obj)
+        public void Save(Image obj)
         {
             throw new NotImplementedException();
         }

@@ -2,36 +2,28 @@
 using CookHub.Shared.Entities;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CookHub.Shared.Helpers;
-using SqlConst = CookHub.Data.Constants.SqlConstants;
-using CookHub.Shared.Constants;
-using CookHub.Shared.Entities.Enums;
 using System.Data;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
-    class UserImageContext : IDataContext<UserImage>, IMapper<UserImage>
+    class UserImageContext : IDataContext<Image>, IMapper<Image>
     {
-        public UserImage MapEntity(DataRow row)
+        public Image MapEntity(DataRow row)
         {
             return null;
         }
 
-        public IReadOnlyCollection<UserImage> MapEntities(DataTable table)
+        public IReadOnlyCollection<Image> MapEntities(DataTable table)
         {
             throw new NotImplementedException();
         }
 
-        public UserImage GetById(int id)
+        public Image GetById(int id)
         {
             return null;
         }
 
-        public void Save(UserImage userImage)
+        public void Save(Image userImage)
         {
 
         }
@@ -41,7 +33,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 
         }
 
-        public IReadOnlyCollection<UserImage> GetAll()
+        public IReadOnlyCollection<Image> GetAll()
         {
             throw new NotImplementedException();
         }

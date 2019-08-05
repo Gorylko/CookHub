@@ -1,18 +1,20 @@
 ﻿using CookHub.Data.DataContext.Interfaces;
 using CookHub.Shared.Entities;
-using System;
 using CookHub.Shared.Entities.Enums;
-using CookHub.Shared.Helpers;
+using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using SqlConst = CookHub.Data.Constants.SqlConstants;
 using System.Data;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
     public class UserContext : IDataContext<User>, IMapper<User>
     {
-        private UserImageContext _userImageContext = new UserImageContext();
+        private IMapper<Image> _userImageMapper;
+
+        public UserContext()
+        {
+             _userImageMapper = new UserImageContext();
+        }
 
         public User MapEntity(DataRow userRow)
         {
@@ -22,7 +24,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
                 Login = userRow.Field<string>("Login"),
                 Email = userRow.Field<string>("Email"),
                 PhoneNumber = userRow.Field<string>("PhoneNumber"),
-                Role = (RoleType)userRow.Field<int>("RoleId")
+                Role = (RoleType)userRow.Field<int>("RoleId"),
             };
         }
 
