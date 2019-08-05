@@ -7,6 +7,7 @@ BEGIN
 	SELECT *
 	FROM [dbo].[User]
 	WHERE [User].[Id] = @userId
+	EXEC [dbo].[sp_select_images_by_user_id] @userId
 END
 
 
