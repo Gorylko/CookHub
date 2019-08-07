@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using CookHub.Web.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using CookHub.IoC;
 
 namespace CookHub.Web
 {
