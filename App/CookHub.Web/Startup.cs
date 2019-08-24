@@ -13,6 +13,9 @@ using CookHub.Web.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using CookHub.IoC;
+using CookHub.Business.Services.Interfaces;
+using CookHub.Business.Services;
+using CookHub.Business.Dependency;
 
 namespace CookHub.Web
 {
@@ -41,6 +44,8 @@ namespace CookHub.Web
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.Ini
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

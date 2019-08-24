@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "6fa82be53fcaca2aa2c7c8bd94cfbe4b6abded86"
+    "signature": "e03569063991e776b6075e7038576c6dacb0d1b8"
   },
   "compilationOptions": {
     "defines": [
@@ -31,7 +31,7 @@
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
           "Microsoft.NETCore.App": "2.1.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.9",
-          "StructureMap": "4.7.1"
+          "StructureMap.AspNetCore": "2.0.0"
         },
         "runtime": {
           "CookHub.Web.dll": {}
@@ -430,6 +430,36 @@
         },
         "compile": {
           "lib/netstandard2.0/StructureMap.dll": {}
+        }
+      },
+      "StructureMap.AspNetCore/2.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.1.1",
+          "StructureMap.Microsoft.DependencyInjection": "2.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/StructureMap.AspNetCore.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/StructureMap.AspNetCore.dll": {}
+        }
+      },
+      "StructureMap.Microsoft.DependencyInjection/2.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.1.1",
+          "StructureMap": "4.7.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/StructureMap.Microsoft.DependencyInjection.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/StructureMap.Microsoft.DependencyInjection.dll": {}
         }
       },
       "System.Composition/1.0.31": {
@@ -3762,6 +3792,20 @@
       "sha512": "sha512-ePJIef6IFpQ+WmDoH2Xr4EFrnbI1z79Z8ukt5ZhlsjKgK47giEJmqnym9BXJ91meBj1dl/7Hn6Nw1amsLFbHJA==",
       "path": "structuremap/4.7.1",
       "hashPath": "structuremap.4.7.1.nupkg.sha512"
+    },
+    "StructureMap.AspNetCore/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xLiLZXXFmtN6FYbQrs6Or9Pzxs1Nk/GkP0rRxkkR0kyjrPu1vCE4lqhdZP3g1CeWq0qJ81kK2D3PUEPTX4f6wg==",
+      "path": "structuremap.aspnetcore/2.0.0",
+      "hashPath": "structuremap.aspnetcore.2.0.0.nupkg.sha512"
+    },
+    "StructureMap.Microsoft.DependencyInjection/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-spA8Q/BVpng2ACbVpRw+v2qv5zWYGC0M9InYkOEeWPT8bLagoGqX3cs75D9wcFpXXO74W1tIpi2ve1JiMdFztQ==",
+      "path": "structuremap.microsoft.dependencyinjection/2.0.0",
+      "hashPath": "structuremap.microsoft.dependencyinjection.2.0.0.nupkg.sha512"
     },
     "System.Composition/1.0.31": {
       "type": "package",

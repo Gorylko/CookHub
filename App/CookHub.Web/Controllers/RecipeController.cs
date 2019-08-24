@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CookHub.Business.Services;
+using CookHub.Business.Services.Interfaces;
 using CookHub.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,7 +11,13 @@ namespace CookHub.Web.Controllers
 {
     public class RecipeController : Controller
     {
-        private RecipeService _recipeService = new RecipeService();
+        private IRecipeService _recipeService;
+
+        public RecipeController(IRecipeService recipeService)
+        {
+            this._recipeService = recipeService;
+        }
+
         public IActionResult ShowRecipeList()
         {
             var model = new RecipeListViewModel { Recipes = _recipeService.GetAll() };
