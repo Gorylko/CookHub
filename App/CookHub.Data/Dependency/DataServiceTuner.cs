@@ -15,6 +15,7 @@ namespace CookHub.Data.Dependency
         {
             services.AddSingleton<IRecipeRepository, RecipeRepository>();
             services.AddSingleton<IRecipeContext, RecipeContext>();
+            services.AddSingleton<IUserRepository, UserRepository>();
         }
     }
 }

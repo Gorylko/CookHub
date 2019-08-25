@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace CookHub.Data.Repositories.Realization
 {
-    public class UserRepository : IRepository<User>
+    public class UserRepository : IUserRepository
     {
-        private IDataContext<User> _dataContext;
-        public UserRepository(IDataContext<User> context)
+        private IUserRepository _dataContext;
+        public UserRepository(IUserRepository context)
         {
             this._dataContext = context;
         }
