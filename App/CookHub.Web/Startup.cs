@@ -15,7 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using CookHub.IoC;
 using CookHub.Business.Services.Interfaces;
 using CookHub.Business.Services;
-using CookHub.Business.Dependency;
+using CookHub.Web.Dependency;
 
 namespace CookHub.Web
 {
@@ -45,7 +45,7 @@ namespace CookHub.Web
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.Ini
+            services.Initialize();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

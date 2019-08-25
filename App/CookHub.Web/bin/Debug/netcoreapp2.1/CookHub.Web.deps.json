@@ -673,6 +673,7 @@
         "dependencies": {
           "CookHub.Data": "1.0.0",
           "CookHub.Shared": "1.0.0",
+          "Microsoft.Extensions.DependencyInjection": "2.1.1",
           "StructureMap": "4.7.1"
         },
         "runtime": {
@@ -685,6 +686,7 @@
       "CookHub.Data/1.0.0": {
         "dependencies": {
           "CookHub.Shared": "1.0.0",
+          "Microsoft.Extensions.DependencyInjection": "2.1.1",
           "StructureMap": "4.7.1",
           "System.Data.DataSetExtensions": "4.5.0",
           "System.Data.SqlClient": "4.6.1"
