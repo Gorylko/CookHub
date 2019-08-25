@@ -11,29 +11,29 @@ namespace CookHub.Data.Repositories.Realization
 {
     public class UserRepository : IUserRepository
     {
-        private IUserRepository _dataContext;
-        public UserRepository(IUserRepository context)
+        private IUserContext _context;
+        public UserRepository(IUserContext context)
         {
-            this._dataContext = context;
+            this._context = context ?? throw new NullReferenceException(nameof(context));
         }
         public void Delete(int id)
         {
-            _dataContext.Delete(id);
+            _context.Delete(id);
         }
 
         public IReadOnlyCollection<User> GetAll()
         {
-            return _dataContext.GetAll();
+            return _context.GetAll();
         }
 
         public User GetById(int id)
         {
-            return _dataContext.GetById(id);
+            return _context.GetById(id);
         }
 
         public void Save(User obj)
         {
-            _dataContext.Save(obj);
+            _context.Save(obj);
         }
     }
 }

@@ -13,9 +13,17 @@ namespace CookHub.Data.Dependency
     {
         public static void AddDataDependency(this IServiceCollection services)
         {
-            services.AddSingleton<IRecipeRepository, RecipeRepository>();
-            services.AddSingleton<IRecipeContext, RecipeContext>();
-            services.AddSingleton<IUserRepository, UserRepository>();
+            //repository
+            services.AddTransient<IRecipeRepository, RecipeRepository>();
+            services.AddTransient<IIngredientRepository, IngredientRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
+
+            //context
+            services.AddTransient<IRecipeContext, RecipeContext>();
+            services.AddTransient<IRecipeImageContext, RecipeImageContext>();
+            services.AddTransient<IIngredientContext, IngredientContext>();
+            services.AddTransient<IUserContext, UserContext>();
+            services.AddTransient<IUserImageContext, UserImageContext>();
         }
     }
 }

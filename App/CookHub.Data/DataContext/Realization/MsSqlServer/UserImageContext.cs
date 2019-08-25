@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
-    class UserImageContext : IDataContext<Image>, IMapper<Image, DataRow, DataTable>
+    class UserImageContext : IUserImageContext, IMapper<Image, DataRow, DataTable>
     {
         public Image MapEntity(DataRow row)
         {

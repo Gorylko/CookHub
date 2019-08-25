@@ -10,9 +10,9 @@ namespace CookHub.Business.Services
     {
         private IIngredientRepository _ingredientRepository;
 
-        public IngredientService(IIngredientRepository context)
+        public IngredientService(IIngredientRepository repository)
         {
-            this._ingredientRepository = context;
+            this._ingredientRepository = repository;
         }
 
         public Ingredient GetById(int id)

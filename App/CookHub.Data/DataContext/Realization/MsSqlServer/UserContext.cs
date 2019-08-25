@@ -8,7 +8,7 @@ using System.Data;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
-    public class UserContext : IDataContext<User>, IMapper<User, UserData, DataTable>
+    public class UserContext : IUserContext, IMapper<User, UserData, DataTable>
     {
         private IMapper<Image, DataRow, DataTable> _userImageMapper;
 

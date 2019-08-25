@@ -13,7 +13,7 @@ namespace CookHub.Business.Dependency
     {
         public static void AddBusinessDataDependency(this IServiceCollection services)
         {
-            services.AddSingleton<IRecipeService, RecipeService>();
+            services.AddTransient<IRecipeService, RecipeService>();
             services.AddDataDependency();
         }
     }
