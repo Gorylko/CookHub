@@ -30,7 +30,7 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            
         }
 
         public IReadOnlyCollection<Recipe> GetAll()

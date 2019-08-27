@@ -10,11 +10,8 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
     public class UserContext : IUserContext
     {
-        private IMapper<Image, DataRow, DataTable> _userImageMapper;
-
         public UserContext()
         {
-             _userImageMapper = new UserImageContext();
         }
 
         public IReadOnlyCollection<User> GetAll()

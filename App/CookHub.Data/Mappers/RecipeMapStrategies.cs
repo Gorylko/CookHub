@@ -7,6 +7,11 @@ namespace CookHub.Data.Mappers
     {
         internal static Recipe MapRecipe(DataSet dataSet)
         {
+            if(dataSet == null)
+            {
+                return default(Recipe);
+            }
+
             var recipeRow = dataSet.Tables[0].Rows[0];
             var ingrTable = dataSet.Tables[1];
             var recipeImagesTable = dataSet.Tables[2];
@@ -19,8 +24,11 @@ namespace CookHub.Data.Mappers
                 Name = recipeRow.Field<string>("Name"),
                 Description = recipeRow.Field<string>("Description"),
                 Ingredients = IngredientMapStrategies.MapIngredients(ingrTable),
-                Images = ImageMapStrategies.MapImages(recipeImagesTable)
+                Images = ImageMapStrategies.MapImages(recipeImagesTable),
+                Author = UserMapStrategies.MapUser(userRow)
             };
+            recipe.Author.Images = ImageMapStrategies.MapImages(userImagesTable);
+            return recipe;
         }
 
     }

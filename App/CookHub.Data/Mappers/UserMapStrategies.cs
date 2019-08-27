@@ -6,7 +6,7 @@ namespace CookHub.Data.Mappers
 {
     class UserMapStrategies
     {
-        internal static User MapEntity(DataRow userRow)
+        internal static User MapUser(DataRow userRow)
         {
             return new User
             {
