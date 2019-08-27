@@ -8,33 +8,13 @@ using System.Data;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
-    public class UserContext : IUserContext, IMapper<User, UserData, DataTable>
+    public class UserContext : IUserContext
     {
         private IMapper<Image, DataRow, DataTable> _userImageMapper;
 
         public UserContext()
         {
              _userImageMapper = new UserImageContext();
-        }
-
-        public User MapEntity(UserData userData)
-        {
-            var userRow = userData.UserRow;
-            var imagesTable = userData.ImagesTable;
-            return new User
-            {
-                Id = userRow.Field<int>("Id"),
-                Login = userRow.Field<string>("Login"),
-                Email = userRow.Field<string>("Email"),
-                PhoneNumber = userRow.Field<string>("PhoneNumber"),
-                Role = (RoleType)userRow.Field<int>("RoleId"),
-                Images = _userImageMapper.MapEntities(imagesTable)
-            };
-        }
-
-        public IReadOnlyCollection<User> MapEntities(DataTable table)
-        {
-            throw new NotImplementedException();
         }
 
         public IReadOnlyCollection<User> GetAll()

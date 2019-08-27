@@ -27,22 +27,6 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
             _recipeImageMapper = new RecipeImageContext();
         }
 
-        internal Recipe MapRecipe(DataRow recipeRow, DataTable ingredientsTable, DataTable recipeImagesTable, DataRow userRow, DataTable userImageTable)
-        {
-            return new Recipe
-            {
-                Id = recipeRow.Field<int>("Id"),
-                Name = recipeRow.Field<string>("Name"),
-                Description = recipeRow.Field<string>("Description"),
-                Author = _userMapper.MapEntity(new UserData {
-                    UserRow = userRow,
-                    ImagesTable = userImageTable
-                }),
-                Ingredients = _ingredientMapper.MapEntities(ingredientsTable),
-                Images = _recipeImageMapper.MapEntities(recipeImagesTable)
-            };
-        }
-
         public Recipe GetById(int id)
         {
             var dataSet = _executor.ExecuteDataSet("sp_select_recipe_by_id", new Dictionary<string, object> {

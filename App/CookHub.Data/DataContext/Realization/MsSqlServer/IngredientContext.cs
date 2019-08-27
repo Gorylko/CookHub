@@ -14,32 +14,8 @@ using System.Data;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
-    public class IngredientContext : IIngredientContext, IMapper<Ingredient, DataRow, DataTable>
+    public class IngredientContext : IIngredientContext
     {
-        public IReadOnlyCollection<Ingredient> MapEntities(DataTable table)
-        {
-            return table.AsEnumerable().Select(ingr => {
-                return new Ingredient
-                {
-                    Id = ingr.Field<int>("Id"),
-                    Name = ingr.Field<string>("Name"),
-                    Amount = ingr.Field<int>("Amount"),
-                    Unit = EnumParser.Parse<UnitType>(ingr.Field<string>("Unit")),
-                    NutritionalValue = new NutritionalValue
-                    {
-                        Protein = ingr.Field<int>("Protein"),
-                        Fat = ingr.Field<int>("Fat"),
-                        Carbohydrate = ingr.Field<int>("Carbohydrate")
-                    }
-                };
-            }).ToList();
-        }
-
-        public Ingredient MapEntity(DataRow row)
-        {
-            return null;
-        }
-
         public Ingredient GetById(int id)
         {
             throw new Exception();

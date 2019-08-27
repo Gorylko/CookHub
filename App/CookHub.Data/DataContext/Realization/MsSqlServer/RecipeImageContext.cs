@@ -8,25 +8,8 @@ using System.Text;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
-    public class RecipeImageContext : IRecipeImageContext, IMapper<Image, DataRow, DataTable>
+    public class RecipeImageContext : IRecipeImageContext
     {
-        public IReadOnlyCollection<Image> MapEntities(DataTable imagesTable)
-        {
-            return imagesTable.AsEnumerable().Select(row =>
-            {
-                return new Image
-                {
-                    Id = row.Field<int>("Id"),
-                    Path = row.Field<string>("Path")
-                };
-            }).ToList();
-        }
-
-        public Image MapEntity(DataRow row)
-        {
-            return null;
-        }
-
         public void Delete(int id)
         {
             throw new NotImplementedException();
