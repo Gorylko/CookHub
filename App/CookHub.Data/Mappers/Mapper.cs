@@ -6,8 +6,8 @@ namespace CookHub.Data.Mappers
 {
     public class Mapper<TInput, TOutput>
     {
-        Func<TInput, TOutput> Map { get; set; }
+        public Func<TInput, TOutput> Map { get; set; }
 
-        Func<TInput, TOutput> MapCollection { get; set; }
+        public Func<TInput, TOutput> MapCollection { get; set; }
     }
 }

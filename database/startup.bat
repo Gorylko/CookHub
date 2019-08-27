@@ -43,5 +43,6 @@ sqlcmd -S %server% -i sp\select\sp_select_user_by_recipe_id.sql
 sqlcmd -S %server% -i sp\select\sp_select_ingredients_by_recipe_id.sql
 sqlcmd -S %server% -i sp\select\sp_select_images_by_recipe_id.sql
 sqlcmd -S %server% -i sp\select\sp_select_recipe_by_id.sql
+sqlcmd -S %server% -i sp\select\sp_select_recipes.sql
 
 pause

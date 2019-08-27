@@ -1,5 +1,7 @@
 ﻿using CookHub.Data.DataContext.Interfaces;
 using CookHub.Data.DataContext.Realization.MsSqlServer;
+using CookHub.Data.DbContext.Interfaces;
+using CookHub.Data.DbContext.Realization;
 using CookHub.Data.Repositories.Interfaces;
 using CookHub.Data.Repositories.Realization;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +26,9 @@ namespace CookHub.Data.Dependency
             services.AddTransient<IIngredientContext, IngredientContext>();
             services.AddTransient<IUserContext, UserContext>();
             services.AddTransient<IUserImageContext, UserImageContext>();
+
+            //other
+            services.AddTransient<IExecutor, ProcedureExecutor>();
         }
     }
 }

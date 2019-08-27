@@ -1,30 +1,21 @@
 ﻿using CookHub.Data.DataContext.Interfaces;
-using CookHub.Data.DataTypes;
 using CookHub.Data.DbContext.Interfaces;
-using CookHub.Data.DbContext.Realization;
+using CookHub.Data.Mappers;
 using CookHub.Shared.Entities;
-using CookHub.Shared.Entities.Enums;
-using CookHub.Shared.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
+using MapStrategy = CookHub.Data.Mappers.RecipeMapStrategies;
 
 namespace CookHub.Data.DataContext.Realization.MsSqlServer
 {
     public class RecipeContext : IRecipeContext
     {
-        private IMapper<User, UserData, DataTable> _userMapper;
-        private IMapper<Ingredient, DataRow, DataTable> _ingredientMapper;
         private IExecutor _executor;
-        private IMapper<Image, DataRow, DataTable> _recipeImageMapper;
 
-        public RecipeContext() //conteiner here
+        public RecipeContext(IExecutor executor)
         {
-            _userMapper = new UserContext();
-            _executor = new ProcedureExecutor();
-            _ingredientMapper = new IngredientContext();
-            _recipeImageMapper = new RecipeImageContext();
+            _executor = executor;
         }
 
         public Recipe GetById(int id)
@@ -33,13 +24,8 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
                 {"recipeId", id}
             });
 
-            DataRow recipeRow = dataSet.Tables[0].Rows[0];
-            DataTable ingrTable = dataSet.Tables[1];
-            DataTable recipeImagesTable = dataSet.Tables[2];
-            DataRow userRow = dataSet.Tables[3].Rows[0];
-            DataTable userImagesTable = dataSet.Tables[4];
-
-            return MapRecipe(recipeRow, ingrTable, recipeImagesTable, userRow, userImagesTable);
+            var mapper = new Mapper<DataSet, Recipe>() { Map = MapStrategy.MapRecipe };
+            return mapper.Map(dataSet);
         }
 
         public void Delete(int id)
