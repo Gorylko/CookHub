@@ -9,6 +9,6 @@ namespace CookHub.Data.Constants
 {
     public static class SqlConstants
     {
-        public const string ConnectionString = "Data Source=LAPTOP-P3338OQH;Initial Catalog=CookHubDB;Integrated Security=True";
+        public const string ConnectionString = "Data Source=COMPUDAHTER;Initial Catalog=CookHubDB;Integrated Security=True";
     }
 }

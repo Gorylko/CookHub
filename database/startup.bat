@@ -1,6 +1,6 @@
 set user="cookHub_admin"
 set password="panties7890"
-set server="LAPTOP-P3338OQH"
+set server="COMPUDAHTER"
 set currentPath=%~dp0
 
 sqlcmd -S %server% -i startup.sql
