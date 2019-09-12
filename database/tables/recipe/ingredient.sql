@@ -5,6 +5,6 @@ CREATE TABLE [dbo].[Ingredient]
 	[Name]NVARCHAR(50)NOT NULL,
 	[Protein]INT NOT NULL,
 	[Fat]INT NOT NULL,
-	[Ñarbohydrate]INT NOT NULL,
+	[Carbohydrate]INT NOT NULL,
 	PRIMARY KEY CLUSTERED([Id]ASC)
 );

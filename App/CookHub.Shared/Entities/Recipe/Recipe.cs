@@ -8,9 +8,9 @@ namespace CookHub.Shared.Entities
 
         public string Name { get; set; }
 
-        public string Decription { get; set; }
+        public string Description { get; set; }
 
-        public IReadOnlyCollection<RecipeImage> Images { get; set; }
+        public IReadOnlyCollection<Image> Images { get; set; }
 
         public IReadOnlyCollection<Ingredient> Ingredients { get; set; }
 

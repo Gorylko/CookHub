@@ -9,31 +9,31 @@ using System.Threading.Tasks;
 
 namespace CookHub.Data.Repositories.Realization
 {
-    public class UserRepository : IRepository<User>
+    public class UserRepository : IUserRepository
     {
-        private IDataContext<User> _dataContext;
-        public UserRepository(IDataContext<User> context)
+        private IUserContext _context;
+        public UserRepository(IUserContext context)
         {
-            this._dataContext = context;
+            this._context = context ?? throw new NullReferenceException(nameof(context));
         }
         public void Delete(int id)
         {
-            _dataContext.Delete(id);
+            _context.Delete(id);
         }
 
         public IReadOnlyCollection<User> GetAll()
         {
-            return _dataContext.GetAll();
+            return _context.GetAll();
         }
 
         public User GetById(int id)
         {
-            return _dataContext.GetById(id);
+            return _context.GetById(id);
         }
 
         public void Save(User obj)
         {
-            _dataContext.Save(obj);
+            _context.Save(obj);
         }
     }
 }

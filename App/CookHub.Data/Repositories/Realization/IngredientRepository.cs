@@ -14,7 +14,7 @@ namespace CookHub.Data.Repositories.Realization
         private IIngredientContext _context;
         public IngredientRepository(IIngredientContext context)
         {
-            this._context = context;
+            this._context = context ?? throw new NullReferenceException(nameof(context));
         }
 
         public IReadOnlyCollection<Ingredient> GetAllByRecipeId(int recipeId)

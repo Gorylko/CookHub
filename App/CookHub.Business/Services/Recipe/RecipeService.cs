@@ -1,4 +1,5 @@
-﻿using CookHub.Data.DataContext.Realization.MsSqlServer;
+﻿using CookHub.Business.Services.Interfaces;
+using CookHub.Data.DataContext.Realization.MsSqlServer;
 using CookHub.Data.Repositories.Interfaces;
 using CookHub.Data.Repositories.Realization;
 using CookHub.Shared.Entities;
@@ -10,13 +11,13 @@ using System.Threading.Tasks;
 
 namespace CookHub.Business.Services
 {
-    public class RecipeService
+    public class RecipeService : IRecipeService 
     {
-        private RecipeRepository _recipeRepository = new RecipeRepository(new RecipeContext());
-        //public RecipeService(IRecipeRepository repository)
-        //{
-        //    this._recipeRepository = repository;
-        //}
+        private IRecipeRepository _recipeRepository;
+        public RecipeService(IRecipeRepository repository)
+        {
+            this._recipeRepository = repository ?? throw new NullReferenceException(nameof(repository));
+        }
 
         public void Delete(int id)
         {
