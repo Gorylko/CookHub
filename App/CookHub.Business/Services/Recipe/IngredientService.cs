@@ -2,6 +2,7 @@
 using CookHub.Data.DataContext.Interfaces;
 using CookHub.Data.Repositories.Interfaces;
 using CookHub.Shared.Entities;
+using System;
 using System.Collections.Generic;
 
 namespace CookHub.Business.Services
@@ -12,7 +13,7 @@ namespace CookHub.Business.Services
 
         public IngredientService(IIngredientRepository repository)
         {
-            this._ingredientRepository = repository;
+            this._ingredientRepository = repository ?? throw new NullReferenceException(nameof(repository));
         }
 
         public Ingredient GetById(int id)

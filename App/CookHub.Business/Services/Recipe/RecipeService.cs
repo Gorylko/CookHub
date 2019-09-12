@@ -16,7 +16,7 @@ namespace CookHub.Business.Services
         private IRecipeRepository _recipeRepository;
         public RecipeService(IRecipeRepository repository)
         {
-            this._recipeRepository = repository;
+            this._recipeRepository = repository ?? throw new NullReferenceException(nameof(repository));
         }
 
         public void Delete(int id)

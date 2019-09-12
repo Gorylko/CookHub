@@ -1,13 +1,8 @@
 ﻿using CookHub.Business.Services.Interfaces;
-using CookHub.Data.DataContext.Realization.MsSqlServer;
 using CookHub.Data.Repositories.Interfaces;
-using CookHub.Data.Repositories.Realization;
 using CookHub.Shared.Entities;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CookHub.Business.Services
 {
@@ -17,7 +12,7 @@ namespace CookHub.Business.Services
 
         public UserService(IUserRepository repository)
         {
-            this._userRepository = repository;
+            this._userRepository = repository ?? throw new NullReferenceException(nameof(repository));
         }
 
         public void Delete(int id)

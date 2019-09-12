@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using CookHub.Web.Dependency;
 
 namespace CookHub.Web
 {
@@ -27,6 +28,8 @@ namespace CookHub.Web
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.Initialize(); //IoC (0_o)
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
