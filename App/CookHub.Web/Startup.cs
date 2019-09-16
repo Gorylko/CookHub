@@ -23,7 +23,7 @@ namespace CookHub.Web
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            //services.Initialize();
+            services.Initialize();
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
