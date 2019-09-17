@@ -25,7 +25,7 @@
       "CookHub.Web/1.0.0": {
         "dependencies": {
           "CookHub.Business": "1.0.0",
-          "CookHub.Data": "1.0.0",
+          "CookHub.Shared": "1.0.0",
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
           "Microsoft.AspNetCore.SpaServices.Extensions": "2.1.1",

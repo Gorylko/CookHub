@@ -1,4 +1,3 @@
-using CookHub.Web.Dependency;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,7 +22,6 @@ namespace CookHub.Web
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.Initialize();
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
