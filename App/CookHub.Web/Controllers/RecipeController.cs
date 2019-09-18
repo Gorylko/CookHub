@@ -2,6 +2,7 @@
 using CookHub.Shared.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 
 namespace CookHub.Web.Controllers
 {
@@ -18,6 +19,11 @@ namespace CookHub.Web.Controllers
         public Recipe GetInfoById(int id)
         {
             return _recipeService.GetById(id);
+        }
+
+        public IReadOnlyCollection<Recipe> GetList()
+        {
+            return _recipeService.GetAll();
         }
     }
 }
