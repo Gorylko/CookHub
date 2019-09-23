@@ -35,10 +35,10 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 
         public IReadOnlyCollection<Recipe> GetAll()
         {
-            return new List<Recipe> {
-                new Recipe{Name = "Recipe One"},
-                new Recipe{Name = "Recipe two"}
-            };
+            var dataSet = _executor.ExecuteDataSet("sp_select_recipes");
+
+            var mapper = new Mapper<DataSet, IReadOnlyCollection<Recipe>>() { MapCollection = MapStrategy.MapRecipeCollection };
+            return mapper.MapCollection(dataSet);
         }
 
         public void Save(Recipe obj)
