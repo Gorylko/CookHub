@@ -16,6 +16,10 @@ namespace CookHub.Shared.Entities
 
         public NutritionalValue NutritionalValue {
             get {
+                if(Ingredients == null)
+                {
+                    return default;
+                }
                 var value = new NutritionalValue(); //container here
                 foreach(var el in Ingredients)
                 {

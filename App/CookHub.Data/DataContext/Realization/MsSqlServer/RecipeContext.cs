@@ -35,7 +35,10 @@ namespace CookHub.Data.DataContext.Realization.MsSqlServer
 
         public IReadOnlyCollection<Recipe> GetAll()
         {
-            throw new NotImplementedException();
+            return new List<Recipe> {
+                new Recipe{Name = "Recipe One"},
+                new Recipe{Name = "Recipe two"}
+            };
         }
 
         public void Save(Recipe obj)

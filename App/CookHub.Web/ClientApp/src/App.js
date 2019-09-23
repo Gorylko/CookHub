@@ -1,8 +1,11 @@
 ﻿import React from 'react';
-import { Route } from 'react-router';
 import Layout from './components/Layout';
+import { RecipeList } from './components/product/RecipeList';
 
 export default () => (
-  <Layout>
-  </Layout>
+    <div>
+        <Layout>
+        </Layout>
+        <RecipeList />
+    </div>
 );
