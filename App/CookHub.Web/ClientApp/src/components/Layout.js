@@ -6,7 +6,7 @@ export default props => (
     <header>
         <ul>
             <li><Link to='/'>Home</Link></li>
-            <li><Link to='/recipelist'>RecipeList</Link></li>
+            <li><Link to='/recipe'>Recipes</Link></li>
         </ul>
     </header>
 );
