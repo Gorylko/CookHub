@@ -6,7 +6,7 @@ import RecipeInfo from './RecipeInfo'
 const Recipe = (props) => (
     <Switch>
         <Route exact path='/recipe' component={RecipeList} />
-        <Route path='/recipe/:number' component={RecipeInfo} />
+        <Route exact path='/recipe/:number' component={RecipeInfo} />
     </Switch>
 );
 
