@@ -8,4 +8,4 @@ const Home = props => (
     </div>
 );
 
-export default connect()(Home);
+export default (Home);

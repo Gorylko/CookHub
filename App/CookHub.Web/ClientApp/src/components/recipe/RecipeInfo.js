@@ -12,11 +12,10 @@ export default class RecipeInfo extends React.Component {
     }
 
     render() { 
-        console.log("rendering -------");
-        console.log(this.state.recipe);
-        if (this.state.recipe) {
+        if (this.state.recipe) { 
             return (
                 <div>
+                    
                     <h1>Recipe info :</h1>
                     <ul>
                         <li>{this.state.recipe.name}</li>
@@ -27,6 +26,6 @@ export default class RecipeInfo extends React.Component {
             );
         }
         return <div>Loading...</div>
-
+        
     }
 }
