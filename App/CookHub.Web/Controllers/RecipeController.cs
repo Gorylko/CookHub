@@ -16,7 +16,7 @@ namespace CookHub.Web.Controllers
             this._recipeService = recipeService ?? throw new NullReferenceException(nameof(recipeService));
         }
 
-        [HttpGet("[action]")]
+        [HttpGet("[action]/{id}")]
         public Recipe GetInfoById(int id)
         {
             return _recipeService.GetById(id);

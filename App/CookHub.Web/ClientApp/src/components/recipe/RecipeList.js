@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
-export class RecipeList extends React.Component{
-    constructor(props){
+export default class RecipeList extends React.Component {
+    constructor(props) {
         super(props);
         this.state = { list: [], loading: true };
         fetch('api/Recipe/GetList')
@@ -12,20 +13,17 @@ export class RecipeList extends React.Component{
         console.log(this.state.list);
     }
 
-    //renderRecipes = recipes => {
-    //    return (
-
-    //        );
-    //}
 
     render() {
         return (
             <div>
                 <h1>All Recipes :</h1>
-                {this.state.list.map(recipe =>
-                    <p>{recipe.name}</p>
-                )}
+                <ul>
+                    {this.state.list.map((recipe, i) =>
+                        <li key={i}><Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link></li>
+                    )}
+                </ul>
             </div>
-            );
+        );
     }
 }

@@ -1,11 +1,10 @@
 ﻿import React from 'react';
 import Layout from './components/Layout';
-import { RecipeList } from './components/product/RecipeList';
+import Main from './components/Main';
 
 export default () => (
     <div>
-        <Layout>
-        </Layout>
-        <RecipeList />
+        <Layout />
+        <Main />
     </div>
 );

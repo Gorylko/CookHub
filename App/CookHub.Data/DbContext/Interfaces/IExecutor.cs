@@ -9,9 +9,9 @@ namespace CookHub.Data.DbContext.Interfaces
 {
     public interface IExecutor
     {
-        DataSet ExecuteDataSet(string procedureName, IDictionary<string, object> values);
+        DataSet ExecuteDataSet(string procedureName, IDictionary<string, object> values = null);
         
 
-        int ExecuteNonQuery(string procedureName, IDictionary<string, object> values);
+        int ExecuteNonQuery(string procedureName, IDictionary<string, object> values = null);
     }
 }

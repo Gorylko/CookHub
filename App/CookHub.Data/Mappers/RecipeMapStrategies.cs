@@ -1,5 +1,7 @@
 ﻿using CookHub.Shared.Entities;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace CookHub.Data.Mappers
 {
@@ -9,7 +11,7 @@ namespace CookHub.Data.Mappers
         {
             if(dataSet == null)
             {
-                return default(Recipe);
+                return default;
             }
 
             var recipeRow = dataSet.Tables[0].Rows[0];
@@ -31,5 +33,21 @@ namespace CookHub.Data.Mappers
             return recipe;
         }
 
+        internal static IReadOnlyCollection<Recipe> MapRecipeCollection(DataSet dataset)
+        {
+            return dataset.Tables[0].AsEnumerable().Select(row =>
+                new Recipe
+                {
+                    Id = row.Field<int>("Id"),
+                    Name = row.Field<string>("Name"),
+                    Description = row.Field<string>("Description"),
+                    Images = Enumerable.Range(0, 1).Select(image =>
+                    new Image
+                    {
+                        Path = row.Field<string>("Path")
+                    }
+                    ).ToList()
+                }).ToList();
+        }
     }
 }
