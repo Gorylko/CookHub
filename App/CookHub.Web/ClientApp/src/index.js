@@ -4,8 +4,6 @@ import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { ConnectedRouter } from 'react-router-redux';
-import { createBrowserHistory } from 'history';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 

@@ -19,8 +19,8 @@ export default class RecipeList extends React.Component {
             <div>
                 <h1>All Recipes :</h1>
                 <ul>
-                    {this.state.list.map(recipe =>
-                        <li><Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link></li>
+                    {this.state.list.map((recipe, i) =>
+                        <li key={i}><Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link></li>
                     )}
                 </ul>
             </div>

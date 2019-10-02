@@ -8,7 +8,11 @@ export default class RecipeInfo extends React.Component {
 
         fetch(`api/recipe/getinfobyid/${props.match.params.number}`)
             .then(data => data.json())
-            .then(jsondata => this.setState({ recipe: jsondata, loading: false }));
+            .then(jsondata => {
+                this.setState({ recipe: jsondata, loading: false });
+                console.log(jsondata);
+            });
+
     }
 
     render() { 
@@ -17,6 +21,7 @@ export default class RecipeInfo extends React.Component {
                 <div>
                     
                     <h1>Recipe info :</h1>
+                    <img src={} />
                     <ul>
                         <li>{this.state.recipe.name}</li>
                         <li>{this.state.recipe.description}</li>
