@@ -21,7 +21,6 @@ export default class RecipeInfo extends React.Component {
                 <div>
                     
                     <h1>Recipe info :</h1>
-                    <img src={} />
                     <ul>
                         <li>{this.state.recipe.name}</li>
                         <li>{this.state.recipe.description}</li>
