@@ -11,10 +11,15 @@ namespace CookHub.Data.Helpers
     {
         internal static byte[] GetImageData(string imagePath)
         {
-            //var data = File.ReadAllBytes(imagePath);
+            if(imagePath == null)
+            {
+                return default;
+            }
+
             var ms = new MemoryStream();
             Image img = Image.FromFile($"../../{imagePath}");
             img.Save(ms, ImageFormat.Jpeg);
+
             return ms.ToArray();
         }
     }
