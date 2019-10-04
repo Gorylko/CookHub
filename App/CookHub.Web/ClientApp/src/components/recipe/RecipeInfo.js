@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import '../../styles/image.css';
 
 export default class RecipeInfo extends React.Component {
     constructor(props) {
@@ -21,6 +22,8 @@ export default class RecipeInfo extends React.Component {
                 <div>
                     
                     <h1>Recipe info :</h1>
+                    <img className="recipe-info-image" src={`data:image/jpeg;base64,${this.state.recipe.images[0].data}`} />
+
                     <ul>
                         <li>{this.state.recipe.name}</li>
                         <li>{this.state.recipe.description}</li>

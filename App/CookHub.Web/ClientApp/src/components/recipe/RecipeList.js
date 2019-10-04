@@ -18,7 +18,6 @@ export default class RecipeList extends React.Component {
         return (
             <div>
                 <h1>All Recipes :</h1>
-                <img src={require("../../images/recipe/draniki.jpg")} />
                 <ul>
                     {this.state.list.map((recipe, i) =>
                         <li key={i}><Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link></li>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using CookHub.Data.Helpers;
 
 namespace CookHub.Data.Mappers
 {
@@ -44,7 +45,7 @@ namespace CookHub.Data.Mappers
                     Images = Enumerable.Range(0, 1).Select(image =>
                     new Image
                     {
-                        Path = row.Field<string>("Path")
+                        Data = ImageHelper.GetImageData(row.Field<string>("Path"))
                     }
                     ).ToList()
                 }).ToList();
